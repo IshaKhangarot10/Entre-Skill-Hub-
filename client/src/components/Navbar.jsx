@@ -33,7 +33,7 @@ export default function Navbar() {
   return (
     <header className="hidden md:flex fixed top-0 left-0 w-full z-50 justify-between items-center px-[64px] py-[12px] bg-[#f9f9f9]/80 backdrop-blur-xl border-b border-[#c4c7c7]/30 shadow-sm">
       <Link href={user ? '/dashboard' : '/'} className="font-['Playfair_Display'] text-[48px] leading-[52px] tracking-[-0.02em] font-semibold text-black">
-        SkillSpark
+        EntreSkill
       </Link>
       {user ? (
         <>
