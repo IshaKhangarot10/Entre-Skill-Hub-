@@ -5,7 +5,7 @@ export default function OnboardingLayout({ children }) {
     <div className="min-h-screen bg-[#f9f9f9] text-[#1a1c1c] font-['Inter'] flex flex-col">
       <header className="flex-none p-[24px] md:px-[64px] flex justify-between items-center z-50">
         <Link href="/" className="font-['Playfair_Display'] text-[24px] md:text-[32px] tracking-[-0.02em] font-semibold text-black">
-          SKILLSPARK
+          EntreSkill
         </Link>
         <span className="font-['Inter'] text-[10px] tracking-[0.05em] font-medium uppercase text-[#747878]">
           Onboarding
