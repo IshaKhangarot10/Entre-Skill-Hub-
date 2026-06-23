@@ -105,7 +105,7 @@ exports.updateProfile = async (req, res, next) => {
       }
     }
 
-    const user = await User.findByIdAndUpdate(req.user.id, updates, {
+    const user = await User.findByIdAndUpdate(req.user._id, updates, {
       new: true,
       runValidators: true
     }).populate('skills').populate('interests').populate('bookmarks');
