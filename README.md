@@ -1,10 +1,10 @@
-# EntreSkill Hub 🚀
+# EntreSkill Hub 
 
 **EntreSkill Hub** (formerly SkillSpark) is a comprehensive, full-stack web platform designed to bridge the gap between existing skills and sustainable micro-businesses. It provides a rigorous, minimalist framework for transforming technical and creative expertise into a scalable enterprise through personalized recommendations, actionable roadmaps, and dedicated mentorship.
 
 ---
 
-## 🌟 Key Features
+##  Key Features
 
 - **Dynamic Onboarding & Recommendation Engine**: Users input their skills, budget, and goals. The platform's algorithm curates and ranks the most viable micro-business models tailored to their profile.
 - **Interactive Step-by-Step Roadmaps**: Once a business idea is selected, users follow a structured execution timeline. Each module includes actionable checklists, video masterclasses, and downloadable resources.
@@ -31,7 +31,7 @@ The application is built using a modern, scalable JavaScript stack:
 
 ---
 
-## 🚀 Getting Started Locally
+##  Getting Started Locally
 
 Follow these instructions to run the application on your local machine.
 
@@ -91,7 +91,7 @@ The client will run on `http://localhost:3000`.
 
 ---
 
-## 🔑 Demo Accounts
+## Demo Accounts
 
 If you seeded the database using `node seed.js`, you can log in with the following credentials to explore different role-based views:
 
