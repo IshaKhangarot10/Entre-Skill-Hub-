@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillSpark - Mentor Application Review</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#c9c6c5",
+                        "surface-container-high": "#e8e8e8",
+                        "secondary-fixed": "#e3e2e2",
+                        "on-surface": "#1a1c1c",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#e6e1df",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "surface-variant": "#e2e2e2",
+                        "surface-bright": "#f9f9f9",
+                        "on-background": "#1a1c1c",
+                        "primary-container": "#1c1b1b",
+                        "surface-dim": "#dadada",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#646464",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "inverse-on-surface": "#f0f1f1",
+                        "on-tertiary-container": "#868381",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#464747",
+                        "outline-variant": "#c4c7c7",
+                        "on-primary-container": "#858383",
+                        "surface-container": "#eeeeee",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "surface-tint": "#5f5e5e",
+                        "on-primary-fixed-variant": "#474646",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#e3e2e2",
+                        "secondary": "#5e5e5e",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface": "#f9f9f9",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-surface-variant": "#444748",
+                        "primary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#1d1b1a",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary": "#000000",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container-low": "#f3f3f4",
+                        "outline": "#747878",
+                        "on-tertiary-fixed-variant": "#484645"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-sm": "12px",
+                        "gutter": "24px",
+                        "margin-page": "64px",
+                        "stack-xl": "120px",
+                        "stack-md": "48px"
+                    },
+                    "fontFamily": {
+                        "mono-label": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-xl": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "mono-label": ["10px", { "lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "600" }],
+                        "headline-xl": ["80px", { "lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-lg": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #E5E5E5;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+        }
+        .hairline-border {
+            border: 1px solid #E5E5E5;
+        }
+        .input-minimal {
+            border: none;
+            border-bottom: 1px solid #E5E5E5;
+            background: transparent;
+            border-radius: 0;
+            padding: 8px 0;
+            transition: border-width 0.2s, border-color 0.2s;
+        }
+        .input-minimal:focus {
+            outline: none;
+            box-shadow: none;
+            border-bottom: 2px solid #000000;
+        }
+        .btn-primary {
+            background-color: #000000;
+            color: #ffffff;
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-primary:hover {
+            transform: scale(1.02);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid #000000;
+            color: #000000;
+            transition: all 0.2s ease;
+        }
+        .btn-secondary:active {
+            background-color: #000000;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md antialiased selection:bg-surface-dim selection:text-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full bg-surface/80 backdrop-blur-xl dark:bg-surface-container-lowest/80 border-b border-outline-variant/30 shadow-[0_20px_40px_rgba(0,0,0,0.04)] z-50">
+<div class="flex justify-between items-center px-margin-page py-6 w-full z-50">
+<div class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tighter text-primary dark:text-on-primary-fixed">SKILLSPARK</div>
+<div class="hidden md:flex space-x-8 items-center font-label-sm text-label-sm uppercase tracking-[0.2em]">
+<a class="text-on-surface-variant/60 dark:text-on-surface-variant pb-1 hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300" href="#">COLLECTIONS</a>
+<a class="text-on-surface-variant/60 dark:text-on-surface-variant pb-1 hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300" href="#">EDITORIAL</a>
+<a class="text-on-surface-variant/60 dark:text-on-surface-variant pb-1 hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300" href="#">ARCHIVE</a>
+<a class="text-on-surface-variant/60 dark:text-on-surface-variant pb-1 hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300" href="#">LABS</a>
+</div>
+<div class="hidden md:block font-label-sm text-label-sm uppercase tracking-[0.2em]">
+<button class="text-primary dark:text-on-primary-fixed hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300">SIGN IN</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-[140px] px-margin-page pb-stack-xl max-w-[1600px] mx-auto">
+<!-- Breadcrumb -->
+<a class="inline-flex items-center space-x-2 font-mono-label text-mono-label tracking-widest text-on-surface-variant hover:text-primary transition-colors mb-12" href="#">
+<span class="material-symbols-outlined text-[14px]" data-icon="arrow_back">arrow_back</span>
+<span>BACK TO QUEUE</span>
+</a>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Applicant Profile -->
+<div class="md:col-span-7 lg:col-span-8 flex flex-col gap-stack-md">
+<!-- Profile Header -->
+<div class="flex flex-col md:flex-row items-start gap-8">
+<div class="w-32 h-32 rounded-full overflow-hidden hairline-border flex-shrink-0">
+<img alt="Applicant Photo" class="w-full h-full object-cover grayscale" data-alt="A stark, high-contrast, black and white professional headshot of a mature individual in minimalist attire against a bright white background. Studio lighting emphasizes angular features, fitting a luxury editorial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_BCE-vXxiNWk7dtHyrySWlhhyWPmobs72v7EjiQKb9maok2zVO_OLvEGi1OZ4BAmGS2Cu-k_QxWAedVNWvyQEypw2ia_dhxw0dUN7XR1JMQzcPsBTSaKpos00l7UoAd8PbM8iNAXviddqv0lv1UWU6s4e9l7b-V39El7cnZmUkce1J1n4WK5BqqW5LROs-iMHKxh6kRHgsEOz0x8jjLnm8ZBXNN9yBgUqMFsJJzmWaMH_Obi4-RJB9Vdpye7w2AuK818qhvqyC3g_"/>
+</div>
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-2">Elias Thorne</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">Senior Technical Architect, Quantum Dynamics</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high rounded text-xs font-mono-label tracking-widest uppercase text-primary">Systems Architecture</span>
+<span class="px-3 py-1 bg-surface-container-high rounded text-xs font-mono-label tracking-widest uppercase text-primary">Cloud Infrastructure</span>
+<span class="px-3 py-1 bg-surface-container-high rounded text-xs font-mono-label tracking-widest uppercase text-primary">Technical Leadership</span>
+</div>
+</div>
+</div>
+<!-- Bio -->
+<section class="mt-8">
+<h2 class="font-mono-label text-mono-label tracking-widest text-on-surface-variant uppercase mb-4">Applicant Bio</h2>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed max-w-3xl">
+                        With over 15 years embedded in enterprise-scale systems architecture, I've led technical strategy for several Fortune 500 migrations. My approach centers on resilient, scalable design patterns devoid of redundant complexity. I am seeking to mentor mid-to-senior engineers transitioning into architectural roles, focusing on structural purity and long-term technical vision.
+                    </p>
+</section>
+<!-- Credentials -->
+<section class="mt-8 border-t border-outline-variant/30 pt-8">
+<h2 class="font-mono-label text-mono-label tracking-widest text-on-surface-variant uppercase mb-6">Submitted Credentials</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<!-- Credential 1 -->
+<div class="group relative cursor-pointer">
+<div class="aspect-[4/3] bg-surface-container-lowest hairline-border overflow-hidden mb-3">
+<img alt="Government ID" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity grayscale" data-alt="A minimalist, high-contrast abstract composition representing an official identification document. Geometric shapes in strict black and white, sharp lines, sterile and precise layout, resembling a luxury schematic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9EnxCRzutDuNGqTmIozCHeBIKA75XWFZZ-_nEKiW2QyH_gBlv8kMLqxqFDd3KyYq0tv0km8p19NjsKlrTxeSF8Xkei2ZCE609NKndx4MH0CHi-dd1K3jKbEMsY_b0wzdOnewWYQvKrcFBSa3nBpL6y50NIAz0JFM_12co2JAlsXL81UkvJBc7iH_SOXttkGxoelEwFn6UPRZj2o7MxXXQcbITbvVUeupTxfeZUvq26zLaBo9kdi8IFtMPYgi0Rp488dzZ7S3a4uCI"/>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-mono-label text-mono-label tracking-widest uppercase text-primary">Government ID</span>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors text-[16px]" data-icon="verified">verified</span>
+</div>
+</div>
+<!-- Credential 2 -->
+<div class="group relative cursor-pointer">
+<div class="aspect-[4/3] bg-surface-container-lowest hairline-border overflow-hidden mb-3">
+<img alt="Employment Verification" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity grayscale" data-alt="A stark, minimalist black and white abstraction of a business credential or certificate. Precise typography fragments, heavy margins, ultra-thin border lines, evoking a premium architectural document." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoIhx2-m2LL5uyRZCz5d-s3SCYlD1Z0RWfZOZQWGOs-K66RduaJOx4mlhOhLpe9BUlqAoiqQ3PAin-kLQcGnqRm_SzcW1nPttrDUv-Nm8Rc7c7qsWQuVpPws1gfJZmN_Z5m-eH3tV5gV0B54vm3jwhrdV0PFwtFKVAZ9mXfpinKcbBSa3ISqRfgKVfTd6HQMrg5A4uRHNUChfEgR61joGQDz74MwFVsTGiiQ0nYDB7SLSsaWKZkMSuqKygyZLtEo8k8XMWjdyKQWEP"/>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-mono-label text-mono-label tracking-widest uppercase text-primary">Employment Verif.</span>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors text-[16px]" data-icon="verified">verified</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Review Panel -->
+<div class="md:col-span-5 lg:col-span-4 sticky top-[120px]">
+<div class="glass-panel p-8 rounded-none">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-8 border-b border-outline-variant/30 pb-4">Evaluation</h3>
+<form>
+<div class="mb-8">
+<label class="block font-mono-label text-mono-label tracking-widest text-on-surface-variant uppercase mb-2" for="review-notes">Review Notes</label>
+<textarea class="w-full input-minimal resize-none font-body-md text-on-surface" id="review-notes" placeholder="Enter specific observations regarding technical depth and communication style..." rows="6"></textarea>
+</div>
+<div class="flex flex-col gap-4">
+<button class="w-full py-4 btn-primary font-label-sm text-label-sm uppercase tracking-widest" type="button">
+                                Approve Mentor
+                            </button>
+<button class="w-full py-4 btn-secondary font-label-sm text-label-sm uppercase tracking-widest" type="button">
+                                Reject Application
+                            </button>
+<button class="w-full py-4 text-center font-mono-label text-mono-label tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors mt-2" type="button">
+                                Request Additional Info
+                            </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-background dark:bg-surface-container-lowest border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center px-margin-page py-stack-sm mt-stack-xl">
+<div class="font-headline-lg text-headline-lg text-primary">SKILLSPARK</div>
+<div class="flex space-x-6 mt-4 md:mt-0 font-mono-label text-mono-label tracking-widest">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:opacity-50 transition-opacity duration-300" href="#">PRIVACY</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:opacity-50 transition-opacity duration-300" href="#">TERMS</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:opacity-50 transition-opacity duration-300" href="#">CONTACT</a>
+</div>
+<div class="mt-4 md:mt-0 font-mono-label text-mono-label tracking-widest text-on-surface-variant">
+            ©2024 SKILLSPARK. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+</body></html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillSpark - Recommendations</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f9f9f9",
+                        "on-surface-variant": "#444748",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-surface": "#2f3131",
+                        "tertiary": "#000000",
+                        "on-secondary-container": "#646464",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "tertiary-container": "#1d1b1a",
+                        "on-tertiary-container": "#868381",
+                        "outline-variant": "#c4c7c7",
+                        "secondary-container": "#e3e2e2",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "surface-container-low": "#f3f3f4",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-tint": "#5f5e5e",
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#1c1b1b",
+                        "tertiary-fixed": "#e6e1df",
+                        "outline": "#747878",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "inverse-on-surface": "#f0f1f1",
+                        "secondary": "#5e5e5e",
+                        "surface-container": "#eeeeee",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#858383",
+                        "surface-dim": "#dadada",
+                        "primary-fixed": "#e5e2e1",
+                        "on-surface": "#1a1c1c",
+                        "primary": "#000000",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e2e2e2",
+                        "background": "#f9f9f9",
+                        "on-primary-fixed-variant": "#474646",
+                        "inverse-primary": "#c9c6c5",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#e3e2e2",
+                        "on-background": "#1a1c1c",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-page": "64px",
+                        "stack-md": "48px",
+                        "gutter": "24px",
+                        "stack-sm": "12px",
+                        "stack-xl": "120px"
+                    },
+                    "fontFamily": {
+                        "mono-label": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-xl": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "mono-label": ["10px", { "lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "600" }],
+                        "headline-xl": ["80px", { "lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #E5E5E5;
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            transform: translateY(-2px);
+        }
+        .match-ring {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 8;
+            transition: stroke-dashoffset 1s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen selection:bg-primary selection:text-on-primary antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-page py-stack-sm bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm hidden md:flex">
+<div class="font-headline-lg text-headline-lg text-primary tracking-tighter">SkillSpark</div>
+<nav class="flex gap-gutter">
+<a class="text-on-secondary-container hover:opacity-80 transition-opacity" href="#">HOME</a>
+<a class="text-primary font-bold hover:opacity-80 transition-opacity active:scale-95 duration-200" href="#">ROADMAPS</a>
+<a class="text-on-secondary-container hover:opacity-80 transition-opacity" href="#">MENTORS</a>
+<a class="text-on-secondary-container hover:opacity-80 transition-opacity" href="#">PROFILE</a>
+</nav>
+<div class="flex gap-4">
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">notifications</span>
+</button>
+</div>
+</header>
+<!-- Mobile Top Header (minimal version for space) -->
+<header class="md:hidden pt-stack-sm px-gutter flex justify-between items-center">
+<div class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tighter">SkillSpark</div>
+<button class="hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 300;">notifications</span>
+</button>
+</header>
+<main class="pt-24 md:pt-40 pb-32 px-gutter md:px-margin-page max-w-[1600px] mx-auto">
+<!-- Editorial Header Section -->
+<div class="mb-stack-xl md:col-start-3 md:col-span-8">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-4 uppercase tracking-[0.12em]">BASED ON YOUR PROFILE</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-xl md:text-headline-xl text-primary max-w-4xl leading-tight">
+                Here Are Businesses That Match You
+            </h1>
+</div>
+<!-- Filter Bar -->
+<div class="flex justify-between items-end mb-stack-md border-b border-outline-variant/30 pb-4">
+<div class="flex gap-6 font-mono-label text-mono-label text-on-surface-variant uppercase">
+<span class="text-primary border-b border-primary pb-1">SORT: MATCH</span>
+<span class="hover:text-primary cursor-pointer transition-colors pb-1">INVESTMENT</span>
+<span class="hover:text-primary cursor-pointer transition-colors pb-1">TIME</span>
+</div>
+<div class="hidden md:flex gap-2">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'wght' 200;">grid_view</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'wght' 400;">view_list</span>
+</div>
+</div>
+<!-- Asymmetric Editorial Stack -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-y-stack-md gap-x-gutter relative">
+<!-- Card 1 -->
+<article class="glass-card p-8 md:p-12 md:col-start-2 md:col-span-8 flex flex-col md:flex-row gap-8 items-start relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<!-- Match Score -->
+<div class="flex-shrink-0 relative w-20 h-20 flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-variant" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="1"></path>
+<path class="text-primary match-ring" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="92, 100" stroke-width="1.5"></path>
+</svg>
+<span class="font-label-sm text-label-sm text-primary">92%</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant font-light" style="font-variation-settings: 'wght' 200;">styler</span>
+<button class="bookmark-btn hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'wght' 300;">bookmark</span>
+</button>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary mb-4 leading-tight">Home Tailoring Service</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-2xl">Leverage your background in textile design to offer bespoke alterations and custom garment creation. High demand in your localized urban area.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 bg-[#F1F1F1] rounded font-mono-label text-mono-label text-on-surface uppercase border border-[#E5E5E5]">LOW INVESTMENT</span>
+<span class="px-3 py-1 bg-[#F1F1F1] rounded font-mono-label text-mono-label text-on-surface uppercase border border-[#E5E5E5]">WORK FROM HOME</span>
+<span class="px-3 py-1 bg-[#F1F1F1] rounded font-mono-label text-mono-label text-on-surface uppercase border border-[#E5E5E5]">HIGH DEMAND</span>
+</div>
+<a class="font-label-sm text-label-sm text-primary uppercase border-b border-primary pb-1 inline-flex items-center gap-2 group-hover:text-secondary transition-colors" href="#">
+                        View Roadmap
+                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" style="font-variation-settings: 'wght' 300;">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Card 2 (Offset to right) -->
+<article class="glass-card p-8 md:p-12 md:col-start-4 md:col-span-8 flex flex-col md:flex-row gap-8 items-start relative overflow-hidden group">
+<!-- Match Score -->
+<div class="flex-shrink-0 relative w-20 h-20 flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-variant" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="1"></path>
+<path class="text-primary match-ring" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="85, 100" stroke-width="1.5"></path>
+</svg>
+<span class="font-label-sm text-label-sm text-primary">85%</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant font-light" style="font-variation-settings: 'wght' 200;">local_florist</span>
+<button class="bookmark-btn hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'wght' 300;">bookmark</span>
+</button>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary mb-4 leading-tight">Boutique Plant Nursery</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-2xl">Utilize your available outdoor space to cultivate rare indoor plants. Strong alignment with your interest in sustainable practices.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 bg-[#F1F1F1] rounded font-mono-label text-mono-label text-on-surface uppercase border border-[#E5E5E5]">MODERATE TIME</span>
+<span class="px-3 py-1 bg-[#F1F1F1] rounded font-mono-label text-mono-label text-on-surface uppercase border border-[#E5E5E5]">OUTDOOR</span>
+<span class="px-3 py-1 bg-[#F1F1F1] rounded font-mono-label text-mono-label text-on-surface uppercase border border-[#E5E5E5]">GROWING MARKET</span>
+</div>
+<a class="font-label-sm text-label-sm text-primary uppercase border-b border-primary pb-1 inline-flex items-center gap-2 group-hover:text-secondary transition-colors" href="#">
+                        View Roadmap
+                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" style="font-variation-settings: 'wght' 300;">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="glass-card p-8 md:p-12 md:col-start-1 md:col-span-8 flex flex-col md:flex-row gap-8 items-start relative overflow-hidden group">
+<!-- Match Score -->
+<div class="flex-shrink-0 relative w-20 h-20 flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-variant" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="1"></path>
+<path class="text-primary match-ring" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="78, 100" stroke-width="1.5"></path>
+</svg>
+<span class="font-label-sm text-label-sm text-primary">78%</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant font-light" style="font-variation-settings: 'wght' 200;">architecture</span>
+<button class="bookmark-btn hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'wght' 300;">bookmark</span>
+</button>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary mb-4 leading-tight">Virtual Staging Agency</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-2xl">Combine your digital design skills with real estate market trends. Offers high scalability with minimal physical overhead.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 bg-[#F1F1F1] rounded font-mono-label text-mono-label text-on-surface uppercase border border-[#E5E5E5]">REMOTE</span>
+<span class="px-3 py-1 bg-[#F1F1F1] rounded font-mono-label text-mono-label text-on-surface uppercase border border-[#E5E5E5]">SCALABLE</span>
+<span class="px-3 py-1 bg-[#F1F1F1] rounded font-mono-label text-mono-label text-on-surface uppercase border border-[#E5E5E5]">TECH FOCUS</span>
+</div>
+<a class="font-label-sm text-label-sm text-primary uppercase border-b border-primary pb-1 inline-flex items-center gap-2 group-hover:text-secondary transition-colors" href="#">
+                        View Roadmap
+                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" style="font-variation-settings: 'wght' 300;">arrow_forward</span>
+</a>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-4 bg-surface/60 backdrop-blur-2xl border-t border-outline-variant/20 shadow-[0_-20px_40px_rgba(0,0,0,0.04)]">
+<a class="flex flex-col items-center justify-center text-on-secondary-container opacity-60 hover:opacity-100 transition-all font-label-sm text-label-sm tracking-[0.2em] uppercase" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'wght' 300;">home</span>
+            HOME
+        </a>
+<a class="flex flex-col items-center justify-center text-primary border-b-2 border-primary pb-1 active:scale-102 transition-transform duration-300 font-label-sm text-label-sm tracking-[0.2em] uppercase" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'wght' 400, 'FILL' 1;">map</span>
+            ROADMAPS
+        </a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container opacity-60 hover:opacity-100 transition-all font-label-sm text-label-sm tracking-[0.2em] uppercase" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'wght' 300;">school</span>
+            MENTORS
+        </a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container opacity-60 hover:opacity-100 transition-all font-label-sm text-label-sm tracking-[0.2em] uppercase" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'wght' 300;">person</span>
+            PROFILE
+        </a>
+</nav>
+<script>
+        // Simple bookmark toggle logic
+        document.querySelectorAll('.bookmark-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const icon = btn.querySelector('.material-symbols-outlined');
+                if (icon.style.fontVariationSettings.includes("'FILL' 1")) {
+                    icon.style.fontVariationSettings = "'wght' 300";
+                    icon.classList.remove('text-primary');
+                    icon.classList.add('text-outline');
+                } else {
+                    icon.style.fontVariationSettings = "'wght' 400, 'FILL' 1";
+                    icon.classList.remove('text-outline');
+                    icon.classList.add('text-primary');
+                }
+            });
+        });
+    </script>
+</body></html>

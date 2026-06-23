@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillSpark Intro Carousel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-primary-fixed-variant": "#474646",
+                        "tertiary-fixed": "#e6e1df",
+                        "surface-dim": "#dadada",
+                        "surface-tint": "#5f5e5e",
+                        "background": "#f9f9f9",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#868381",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f3f3f4",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-container-high": "#e8e8e8",
+                        "secondary": "#5e5e5e",
+                        "surface-variant": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "outline-variant": "#c4c7c7",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary-container": "#1d1b1a",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#1a1c1c",
+                        "outline": "#747878",
+                        "surface": "#f9f9f9",
+                        "inverse-surface": "#2f3131",
+                        "secondary-container": "#e3e2e2",
+                        "on-error": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "inverse-primary": "#c9c6c5",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f0f1f1",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "primary": "#000000",
+                        "on-primary-container": "#858383",
+                        "primary-container": "#1c1b1b",
+                        "surface-bright": "#f9f9f9",
+                        "on-secondary-container": "#646464",
+                        "tertiary": "#000000",
+                        "secondary-fixed": "#e3e2e2",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-container": "#eeeeee",
+                        "on-surface-variant": "#444748"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-xl": "120px",
+                        "stack-sm": "12px",
+                        "gutter": "24px",
+                        "margin-page": "64px",
+                        "stack-md": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "mono-label": ["Inter"],
+                        "headline-xl": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "600" }],
+                        "mono-label": ["10px", { "lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-xl": ["80px", { "lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md bg-surface-container-lowest">
+<!-- Header Section -->
+<header class="flex justify-between items-center px-margin-page py-6 w-full z-50">
+<div class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary">SKILLSPARK</div>
+<button class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors duration-300">SKIP</button>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex items-center justify-center relative w-full h-full">
+<!-- Background Accents -->
+<div class="absolute inset-0 pointer-events-none z-0">
+<div class="absolute top-[20%] left-[15%] w-64 h-[1px] bg-outline-variant/30 transform -rotate-45"></div>
+<div class="absolute bottom-[30%] right-[20%] w-96 h-[1px] bg-outline-variant/30 transform rotate-12"></div>
+<!-- Large Numeral -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-headline-xl text-[240px] leading-none text-surface-container-high/50 font-bold -z-10 select-none">
+                 01
+             </div>
+</div>
+<div class="z-10 w-full max-w-7xl mx-auto px-margin-page flex flex-col md:flex-row items-center justify-between gap-gutter">
+<!-- Left Side: Content -->
+<div class="w-full md:w-1/2 flex flex-col justify-center space-y-stack-md pr-0 md:pr-12">
+<div class="space-y-stack-sm">
+<h1 class="font-headline-lg text-headline-lg text-primary">Tell us your skills</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                        Begin curating your professional narrative. Select the capabilities that define your practice to tailor your experience within the network.
+                    </p>
+</div>
+<!-- Abstract Visual Element -->
+<div class="relative w-full h-48 mt-stack-md overflow-hidden bg-surface border border-outline-variant/20 rounded">
+<img class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="A striking minimalist 3D rendering of abstract geometric shapes, primarily thin intersecting lines and a perfect sphere, resting on a matte white surface. High-key studio lighting casts long, soft shadows, creating a high-fashion, pristine editorial atmosphere. The palette is stark black and white with subtle gray gradients, evoking an ultra-premium technical schematic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkJlW9SQ6__AjwwtHA4r2okud5aTzFhTCnqMtVFEtA0AEhG6sUyYPYf80coZVKAfzmF2HLk3Fba7fDH8UwvJKZsjwzwjcP7VJYXjUMMA7kBCzdqabEjgO1ylY616NCBv_B3UguAxq6_6KIfevCJHx-nIdY9n8QK6ENeuQa0tGvTqrVPsAZOLeBrA3v1nhq7hXV7ksi8lFkP7QUw85JL8GFOBLrBGE9SRljbf2NfSDNkqRPKvS1eQX4Rxv6rt6VYhMVPsw4AfeoKxpo"/>
+</div>
+</div>
+<!-- Right Side: Interactions / Secondary Visuals -->
+<div class="w-full md:w-1/2 flex flex-col justify-center items-end mt-stack-xl md:mt-0">
+<!-- Form / Selection Mockup -->
+<div class="w-full max-w-sm space-y-6">
+<div class="relative">
+<input class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary py-3 px-0 font-body-md text-primary placeholder-on-surface-variant/50 outline-none transition-colors duration-300" placeholder="Search capabilities..." type="text"/>
+<span class="material-symbols-outlined absolute right-0 top-3 text-on-surface-variant">search</span>
+</div>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 text-label-sm font-label-sm uppercase tracking-widest border border-primary text-primary rounded bg-surface-container-lowest cursor-pointer hover:bg-surface-container-high transition-colors">Design Systems</span>
+<span class="px-4 py-2 text-label-sm font-label-sm uppercase tracking-widest border border-outline-variant/50 text-on-surface-variant rounded bg-surface-container-lowest cursor-pointer hover:border-primary transition-colors">Typography</span>
+<span class="px-4 py-2 text-label-sm font-label-sm uppercase tracking-widest border border-outline-variant/50 text-on-surface-variant rounded bg-surface-container-lowest cursor-pointer hover:border-primary transition-colors">User Research</span>
+<span class="px-4 py-2 text-label-sm font-label-sm uppercase tracking-widest border border-outline-variant/50 text-on-surface-variant rounded bg-surface-container-lowest cursor-pointer hover:border-primary transition-colors">Prototyping</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Controls -->
+<footer class="flex justify-between items-center px-margin-page py-8 w-full z-50">
+<!-- Pagination -->
+<div class="flex items-center space-x-4">
+<div class="w-12 h-[2px] bg-primary"></div>
+<div class="w-8 h-[1px] bg-outline-variant/50 hover:bg-primary/50 transition-colors cursor-pointer"></div>
+<div class="w-8 h-[1px] bg-outline-variant/50 hover:bg-primary/50 transition-colors cursor-pointer"></div>
+<div class="w-8 h-[1px] bg-outline-variant/50 hover:bg-primary/50 transition-colors cursor-pointer"></div>
+</div>
+<!-- Next Button -->
+<button class="bg-primary text-on-primary px-8 py-4 font-label-sm text-label-sm uppercase tracking-[0.2em] rounded-DEFAULT hover:scale-[1.02] transition-transform duration-300 flex items-center space-x-3 group">
+<span>Next</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</footer>
+</body></html>

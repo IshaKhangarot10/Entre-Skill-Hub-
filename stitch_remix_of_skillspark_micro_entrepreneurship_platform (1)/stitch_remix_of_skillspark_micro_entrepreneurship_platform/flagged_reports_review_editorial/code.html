@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillSpark - Flagged Reports</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#c9c6c5",
+                        "surface-container-high": "#e8e8e8",
+                        "secondary-fixed": "#e3e2e2",
+                        "on-surface": "#1a1c1c",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#e6e1df",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "surface-variant": "#e2e2e2",
+                        "surface-bright": "#f9f9f9",
+                        "on-background": "#1a1c1c",
+                        "primary-container": "#1c1b1b",
+                        "surface-dim": "#dadada",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#646464",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "inverse-on-surface": "#f0f1f1",
+                        "on-tertiary-container": "#868381",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#464747",
+                        "outline-variant": "#c4c7c7",
+                        "on-primary-container": "#858383",
+                        "surface-container": "#eeeeee",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "surface-tint": "#5f5e5e",
+                        "on-primary-fixed-variant": "#474646",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#e3e2e2",
+                        "secondary": "#5e5e5e",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface": "#f9f9f9",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-surface-variant": "#444748",
+                        "primary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#1d1b1a",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary": "#000000",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container-low": "#f3f3f4",
+                        "outline": "#747878",
+                        "on-tertiary-fixed-variant": "#484645"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-sm": "12px",
+                        "gutter": "24px",
+                        "margin-page": "64px",
+                        "stack-xl": "120px",
+                        "stack-md": "48px"
+                    },
+                    "fontFamily": {
+                        "mono-label": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-xl": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "mono-label": ["10px", { "lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "600" }],
+                        "headline-xl": ["80px", { "lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-lg": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .accordion-content {
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .accordion-content.expanded {
+            max-height: 500px;
+            opacity: 1;
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
+        .report-row {
+            border-bottom: 1px solid #E5E5E5;
+        }
+        .report-row:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary selection:text-on-primary pt-32">
+<!-- Top Navigation Placeholder (Canvas priority, but included per structural norm, though arguably transactional. We include it as a dashboard destination) -->
+<nav class="fixed top-0 w-full bg-surface/80 backdrop-blur-xl dark:bg-surface-container-lowest/80 border-b border-outline-variant/30 flex justify-between items-center px-margin-page py-6 z-50">
+<div class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tighter text-primary dark:text-on-primary-fixed">
+            SKILLSPARK
+        </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface-variant/60 pb-1 hover:text-primary transition-colors duration-300" href="#">COLLECTIONS</a>
+<a class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface-variant/60 pb-1 hover:text-primary transition-colors duration-300" href="#">EDITORIAL</a>
+<a class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface-variant/60 pb-1 hover:text-primary transition-colors duration-300" href="#">ARCHIVE</a>
+<a class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-primary border-b border-primary pb-1" href="#">LABS</a> <!-- Defaulting LABS as closest to 'Admin/Reports' context if forced, otherwise just a generic active state -->
+</div>
+<button class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-primary border border-outline px-4 py-2 hover:bg-primary hover:text-on-primary transition-colors duration-300">
+            SIGN IN
+        </button>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-5 md:px-margin-page max-w-[1440px] mx-auto w-full pb-stack-xl">
+<!-- Header -->
+<header class="mb-stack-md pt-12 md:col-start-3 md:col-span-8">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-primary tracking-tight mb-4">
+                Flagged Reports
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                Review and adjudicate user-submitted reports regarding content policy violations. High severity items demand immediate attention.
+            </p>
+</header>
+<!-- Reports List Canvas -->
+<section class="w-full md:col-start-2 md:col-span-10">
+<!-- Glassmorphism Container -->
+<div class="bg-surface-container-lowest/70 backdrop-blur-[20px] border border-[#E5E5E5] rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.04)] overflow-hidden">
+<!-- Table Header (Hidden on Mobile) -->
+<div class="hidden md:grid grid-cols-12 gap-4 px-6 py-4 border-b border-[#E5E5E5] bg-surface-bright/50 font-mono-label text-mono-label text-on-surface-variant tracking-widest uppercase">
+<div class="col-span-3">Reporter</div>
+<div class="col-span-4">Reported Content</div>
+<div class="col-span-3">Category Tag</div>
+<div class="col-span-2 text-right">Date Logged</div>
+</div>
+<!-- Report Rows -->
+<div class="flex flex-col" id="reports-container">
+<!-- Row 1 (High Severity) -->
+<div class="report-row px-4 md:px-6 py-4 cursor-pointer hover:bg-surface-bright/50 transition-colors duration-200" onclick="toggleAccordion('acc-1')">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 items-center">
+<div class="md:col-span-3 font-bold font-body-md text-body-md text-primary truncate">
+                                @elena_k
+                            </div>
+<div class="md:col-span-4 font-bold font-body-md text-body-md text-primary truncate">
+                                "Advanced Machine Learning Concepts" Course
+                            </div>
+<div class="md:col-span-3 flex items-center">
+<span class="bg-[#F1F1F1] px-2 py-1 rounded font-mono-label text-mono-label text-primary uppercase tracking-widest border border-[#E5E5E5]">Plagiarism</span>
+</div>
+<div class="md:col-span-2 text-left md:text-right font-mono-label text-mono-label text-on-surface-variant">
+                                OCT 24, 2023
+                            </div>
+</div>
+<!-- Accordion Detail -->
+<div class="accordion-content" id="acc-1">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 border-t border-[#E5E5E5] pt-6 mt-2">
+<div>
+<h4 class="font-mono-label text-mono-label text-on-surface-variant mb-2 uppercase tracking-widest">Reporter Notes</h4>
+<p class="font-body-md text-body-md text-primary mb-6">
+                                        "Sections 3 through 5 of this course contain uncredited, direct copy-paste material from the O'Reilly publication on Deep Learning. The diagrams are identical without citation."
+                                    </p>
+<h4 class="font-mono-label text-mono-label text-on-surface-variant mb-2 uppercase tracking-widest">Evidence Link</h4>
+<a class="font-body-md text-body-md text-outline hover:text-primary underline decoration-1 underline-offset-4 transition-colors" href="#">View Source Comparison</a>
+</div>
+<div class="flex flex-col justify-end gap-3 items-start lg:items-end">
+<h4 class="font-mono-label text-mono-label text-on-surface-variant mb-2 uppercase tracking-widest w-full lg:text-right">Adjudication Actions</h4>
+<div class="flex flex-wrap gap-3 justify-end w-full">
+<button class="px-6 py-3 border border-[#E5E5E5] font-label-sm text-label-sm uppercase tracking-[0.12em] text-primary hover:bg-primary hover:text-on-primary active:bg-primary active:text-on-primary transition-all duration-200">
+                                            Dismiss
+                                        </button>
+<button class="px-6 py-3 border border-[#E5E5E5] font-label-sm text-label-sm uppercase tracking-[0.12em] text-primary hover:bg-primary hover:text-on-primary active:bg-primary active:text-on-primary transition-all duration-200">
+                                            Warn User
+                                        </button>
+<button class="px-6 py-3 border border-primary bg-surface-container-lowest font-label-sm text-label-sm uppercase tracking-[0.12em] text-primary hover:bg-primary hover:text-on-primary active:bg-primary active:text-on-primary transition-all duration-200">
+                                            Suspend Content
+                                        </button>
+</div>
+<button class="mt-2 text-error hover:opacity-70 font-label-sm text-label-sm uppercase tracking-[0.12em] flex items-center gap-2 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">flag</span> Escalate to Legal
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 2 (Low Severity) -->
+<div class="report-row px-4 md:px-6 py-4 cursor-pointer hover:bg-surface-bright/50 transition-colors duration-200" onclick="toggleAccordion('acc-2')">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 items-center">
+<div class="md:col-span-3 font-normal font-body-md text-body-md text-on-surface truncate">
+                                @dev_student_99
+                            </div>
+<div class="md:col-span-4 font-normal font-body-md text-body-md text-on-surface truncate">
+                                Comment on "UI Patterns"
+                            </div>
+<div class="md:col-span-3 flex items-center">
+<span class="bg-[#F1F1F1] px-2 py-1 rounded font-mono-label text-mono-label text-primary uppercase tracking-widest border border-[#E5E5E5]">Spam</span>
+</div>
+<div class="md:col-span-2 text-left md:text-right font-mono-label text-mono-label text-on-surface-variant">
+                                OCT 23, 2023
+                            </div>
+</div>
+<!-- Accordion Detail -->
+<div class="accordion-content" id="acc-2">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 border-t border-[#E5E5E5] pt-6 mt-2">
+<div>
+<h4 class="font-mono-label text-mono-label text-on-surface-variant mb-2 uppercase tracking-widest">Reporter Notes</h4>
+<p class="font-body-md text-body-md text-primary mb-6">
+                                        "User keeps posting links to their own irrelevant portfolio in the discussion thread. It's disruptive."
+                                    </p>
+<h4 class="font-mono-label text-mono-label text-on-surface-variant mb-2 uppercase tracking-widest">Reported Text</h4>
+<p class="font-body-md text-body-md text-outline italic border-l-2 border-[#E5E5E5] pl-4 py-1">
+                                        "Great tutorial! Check out my designs at http://spam-link.example.com"
+                                    </p>
+</div>
+<div class="flex flex-col justify-end gap-3 items-start lg:items-end">
+<h4 class="font-mono-label text-mono-label text-on-surface-variant mb-2 uppercase tracking-widest w-full lg:text-right">Adjudication Actions</h4>
+<div class="flex flex-wrap gap-3 justify-end w-full">
+<button class="px-6 py-3 border border-[#E5E5E5] font-label-sm text-label-sm uppercase tracking-[0.12em] text-primary hover:bg-primary hover:text-on-primary active:bg-primary active:text-on-primary transition-all duration-200">
+                                            Dismiss
+                                        </button>
+<button class="px-6 py-3 border border-[#E5E5E5] font-label-sm text-label-sm uppercase tracking-[0.12em] text-primary hover:bg-primary hover:text-on-primary active:bg-primary active:text-on-primary transition-all duration-200">
+                                            Warn User
+                                        </button>
+<button class="px-6 py-3 border border-[#E5E5E5] font-label-sm text-label-sm uppercase tracking-[0.12em] text-primary hover:bg-primary hover:text-on-primary active:bg-primary active:text-on-primary transition-all duration-200">
+                                            Delete Comment
+                                        </button>
+</div>
+<button class="mt-2 text-error hover:opacity-70 font-label-sm text-label-sm uppercase tracking-[0.12em] flex items-center gap-2 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">flag</span> Escalate
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 3 (High Severity) -->
+<div class="report-row px-4 md:px-6 py-4 cursor-pointer hover:bg-surface-bright/50 transition-colors duration-200" onclick="toggleAccordion('acc-3')">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 items-center">
+<div class="md:col-span-3 font-bold font-body-md text-body-md text-primary truncate">
+                                @sys_admin
+                            </div>
+<div class="md:col-span-4 font-bold font-body-md text-body-md text-primary truncate">
+                                User Profile: @hacker_x
+                            </div>
+<div class="md:col-span-3 flex items-center">
+<span class="bg-[#F1F1F1] px-2 py-1 rounded font-mono-label text-mono-label text-primary uppercase tracking-widest border border-[#E5E5E5]">Terms Violation</span>
+</div>
+<div class="md:col-span-2 text-left md:text-right font-mono-label text-mono-label text-on-surface-variant">
+                                OCT 23, 2023
+                            </div>
+</div>
+<!-- Accordion Detail -->
+<div class="accordion-content" id="acc-3">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 border-t border-[#E5E5E5] pt-6 mt-2">
+<div>
+<h4 class="font-mono-label text-mono-label text-on-surface-variant mb-2 uppercase tracking-widest">Reporter Notes</h4>
+<p class="font-body-md text-body-md text-primary mb-6">
+                                        "Automated flag: Profile bio contains malicious script injection attempts intended to harvest session tokens."
+                                    </p>
+<h4 class="font-mono-label text-mono-label text-on-surface-variant mb-2 uppercase tracking-widest">System Log</h4>
+<div class="bg-[#F1F1F1] p-4 font-mono-label text-mono-label text-on-surface-variant overflow-x-auto border border-[#E5E5E5]">
+<code>Alert[1042]: XSS payload detected in Bio field. Action: Quarantined.</code>
+</div>
+</div>
+<div class="flex flex-col justify-end gap-3 items-start lg:items-end">
+<h4 class="font-mono-label text-mono-label text-on-surface-variant mb-2 uppercase tracking-widest w-full lg:text-right">Adjudication Actions</h4>
+<div class="flex flex-wrap gap-3 justify-end w-full">
+<button class="px-6 py-3 border border-[#E5E5E5] font-label-sm text-label-sm uppercase tracking-[0.12em] text-primary hover:bg-primary hover:text-on-primary active:bg-primary active:text-on-primary transition-all duration-200">
+                                            Dismiss
+                                        </button>
+<button class="px-6 py-3 border border-primary bg-surface-container-lowest font-label-sm text-label-sm uppercase tracking-[0.12em] text-primary hover:bg-primary hover:text-on-primary active:bg-primary active:text-on-primary transition-all duration-200">
+                                            Suspend Account
+                                        </button>
+</div>
+<button class="mt-2 text-error hover:opacity-70 font-label-sm text-label-sm uppercase tracking-[0.12em] flex items-center gap-2 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">flag</span> Escalate to SecOps
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination / Load More (Minimalist) -->
+<div class="mt-8 flex justify-center">
+<button class="font-label-sm text-label-sm uppercase tracking-[0.12em] text-outline hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-1">
+                    Load More Reports
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background dark:bg-surface-container-lowest border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center px-margin-page py-stack-sm w-full mt-stack-xl relative z-10">
+<div class="font-headline-lg text-headline-lg text-primary mb-4 md:mb-0">
+            SKILLSPARK
+        </div>
+<div class="flex gap-6 items-center">
+<a class="font-mono-label text-mono-label tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:opacity-50 transition-opacity duration-300" href="#">PRIVACY</a>
+<a class="font-mono-label text-mono-label tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:opacity-50 transition-opacity duration-300" href="#">TERMS</a>
+<a class="font-mono-label text-mono-label tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:opacity-50 transition-opacity duration-300" href="#">CONTACT</a>
+</div>
+<div class="font-mono-label text-mono-label tracking-widest text-on-surface-variant dark:text-on-surface-variant mt-4 md:mt-0">
+            ©2024 SKILLSPARK. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+<script>
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const allContents = document.querySelectorAll('.accordion-content');
+            
+            // Close others
+            allContents.forEach(el => {
+                if (el.id !== id && el.classList.contains('expanded')) {
+                    el.classList.remove('expanded');
+                }
+            });
+
+            // Toggle current
+            content.classList.toggle('expanded');
+        }
+    </script>
+</body></html>

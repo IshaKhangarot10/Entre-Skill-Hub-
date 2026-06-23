@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Platform Analytics - Mentorship Oversight</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "on-surface-variant": "#444748",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "surface-container-low": "#f3f3f4",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#e3e2e2",
+                        "surface": "#f9f9f9",
+                        "outline-variant": "#c4c7c7",
+                        "on-secondary-container": "#646464",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#474646",
+                        "background": "#f9f9f9",
+                        "surface-tint": "#5f5e5e",
+                        "surface-dim": "#dadada",
+                        "inverse-primary": "#c9c6c5",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#1c1b1b",
+                        "inverse-surface": "#2f3131",
+                        "surface-bright": "#f9f9f9",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "primary": "#000000",
+                        "inverse-on-surface": "#f0f1f1",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-primary-container": "#858383",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#eeeeee",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary-fixed": "#e6e1df",
+                        "secondary": "#5e5e5e",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "outline": "#747878",
+                        "on-surface": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#000000",
+                        "tertiary-container": "#1d1b1a",
+                        "primary-container": "#1c1b1b",
+                        "on-tertiary-container": "#868381",
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "surface-container-high": "#e8e8e8",
+                        "secondary-container": "#e3e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-page": "64px",
+                        "stack-md": "48px",
+                        "stack-sm": "12px",
+                        "gutter": "24px",
+                        "stack-xl": "120px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "mono-label": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["80px", { "lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-lg": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "mono-label": ["10px", { "lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #f9f9f9; color: #1a1c1c; }
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #E5E5E5;
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+        }
+        .hairline-border { border: 1px solid #E5E5E5; }
+        .hairline-b { border-bottom: 1px solid #E5E5E5; }
+        .hairline-t { border-top: 1px solid #E5E5E5; }
+        .sparkline { width: 100%; height: 40px; }
+        
+        /* Minimalist Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e2e2; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c4c7c7; }
+    </style>
+</head>
+<body class="font-body-md text-on-surface bg-background antialiased selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 z-40 flex items-center justify-between px-gutter h-16 bg-surface/60 dark:bg-background/60 backdrop-blur-lg border-b border-outline-variant/30">
+<div class="font-mono-label text-mono-label uppercase tracking-[0.2em] text-primary dark:text-on-primary">MENTORSHIP OVERSIGHT</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-secondary hover:opacity-70 transition-opacity cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-secondary hover:opacity-70 transition-opacity cursor-pointer">history</span>
+<img alt="Administrator Profile" class="w-8 h-8 rounded-full object-cover hairline-border cursor-pointer hover:opacity-70 transition-opacity" data-alt="A small, high-contrast black and white studio portrait of a corporate administrator. The lighting is dramatic, casting deep shadows, fitting a premium, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBooyt02rctNfE28a0Wcbx--TZPZJHRaQBzVctIvOmaBbvk7igrLLb6xUaBfuIsJ2XsWevMVU9MIxTVPIEwaWBD0LFX2ZWmjT1XkeutlznVHp4xLPAz08LereTUkKW6cMR9h-nnefBMGhUCZ1t7In49MJMcsG6qtUVD0slHZPchZqKHTyRa8946Dv9cVS4zlYBIsEcCprZxAv-E_mBfHGqVwmVd8BVo6pa0bjHIBMaH3Z-YCo_k6enwiVaHrTgXwPZrqgM-bM0a3YJ5"/>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="w-64 h-screen fixed left-0 top-0 flex flex-col py-margin-page gap-stack-md bg-surface/80 dark:bg-background/80 backdrop-blur-xl border-r border-outline-variant/30 shadow-[20px_0_40px_rgba(0,0,0,0.02)] z-50">
+<div class="px-gutter">
+<div class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary dark:text-on-primary mb-2">OVERSIGHT</div>
+<div class="font-mono-label text-mono-label text-secondary">V.2.0.4 - PREMIUM</div>
+</div>
+<div class="flex-1 overflow-y-auto mt-stack-md">
+<ul class="flex flex-col gap-2">
+<li>
+<a class="flex items-center px-gutter py-3 text-secondary transition-colors duration-300 transition-all duration-300 ease-in-out hover:pl-2 hover:text-primary hover:bg-surface-container-low/50" href="#">
+<span class="material-symbols-outlined mr-4">pending_actions</span>
+<span class="font-label-sm text-label-sm uppercase">Queue</span>
+</a>
+</li>
+<li>
+<a class="flex items-center px-gutter py-3 text-secondary transition-colors duration-300 transition-all duration-300 ease-in-out hover:pl-2 hover:text-primary hover:bg-surface-container-low/50" href="#">
+<span class="material-symbols-outlined mr-4">group</span>
+<span class="font-label-sm text-label-sm uppercase">Users &amp; Mentors</span>
+</a>
+</li>
+<li>
+<a class="flex items-center px-gutter py-3 text-secondary transition-colors duration-300 transition-all duration-300 ease-in-out hover:pl-2 hover:text-primary hover:bg-surface-container-low/50" href="#">
+<span class="material-symbols-outlined mr-4">library_books</span>
+<span class="font-label-sm text-label-sm uppercase">Content Library</span>
+</a>
+</li>
+<li>
+<a class="flex items-center px-gutter py-3 text-primary font-bold border-r-2 border-primary transition-all duration-300 ease-in-out bg-surface-container-lowest" href="#">
+<span class="material-symbols-outlined mr-4" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-sm text-label-sm uppercase">Analytics</span>
+</a>
+</li>
+<li>
+<a class="flex items-center px-gutter py-3 text-secondary transition-colors duration-300 transition-all duration-300 ease-in-out hover:pl-2 hover:text-primary hover:bg-surface-container-low/50" href="#">
+<span class="material-symbols-outlined mr-4">settings</span>
+<span class="font-label-sm text-label-sm uppercase">Settings</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="px-gutter mt-auto flex flex-col gap-4">
+<button class="w-full py-3 bg-primary text-on-primary font-label-sm text-label-sm uppercase hover:scale-[1.02] transition-transform flex items-center justify-center gap-2 rounded-DEFAULT">
+                SYSTEM LOGS
+            </button>
+<ul class="flex flex-col gap-2 mt-4">
+<li>
+<a class="flex items-center py-2 text-secondary hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mr-4 text-[18px]">help_outline</span>
+<span class="font-mono-label text-mono-label">Support</span>
+</a>
+</li>
+<li>
+<a class="flex items-center py-2 text-secondary hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mr-4 text-[18px]">logout</span>
+<span class="font-mono-label text-mono-label">Sign Out</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-margin-page min-h-screen">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:items-end justify-between mb-stack-md gap-4 border-b border-[#E5E5E5] pb-8">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-primary tracking-tighter">Platform Overview</h1>
+</div>
+<div class="flex items-center gap-2 cursor-pointer group px-4 py-2 bg-surface-container-lowest hairline-border rounded-lg hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow">
+<span class="font-mono-label text-mono-label text-primary">LAST 30 DAYS</span>
+<span class="material-symbols-outlined text-[16px] text-primary group-hover:translate-y-[1px] transition-transform">arrow_drop_down</span>
+</div>
+</header>
+<!-- KPI Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-stack-xl">
+<!-- Card 1 -->
+<article class="glass-card p-6 flex flex-col justify-between h-48 rounded-lg relative overflow-hidden group">
+<div class="flex justify-between items-start">
+<h3 class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">REGISTERED USERS</h3>
+<span class="material-symbols-outlined text-outline-variant">person_add</span>
+</div>
+<div class="font-mono text-[40px] leading-none font-medium tracking-tight mt-auto z-10">24,591</div>
+<!-- Sparkline Placeholder SVG -->
+<svg class="sparkline absolute bottom-0 left-0 w-full opacity-20 group-hover:opacity-100 transition-opacity duration-500" preserveaspectratio="none" viewbox="0 0 100 40">
+<path d="M0 30 Q 10 20, 20 25 T 40 10 T 60 15 T 80 5 T 100 0 L 100 40 L 0 40 Z" fill="rgba(0,0,0,0.03)"></path>
+<path d="M0 30 Q 10 20, 20 25 T 40 10 T 60 15 T 80 5 T 100 0" fill="none" stroke="#000" stroke-width="1"></path>
+</svg>
+</article>
+<!-- Card 2 -->
+<article class="glass-card p-6 flex flex-col justify-between h-48 rounded-lg relative overflow-hidden group">
+<div class="flex justify-between items-start">
+<h3 class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">ACTIVE MENTORS</h3>
+<span class="material-symbols-outlined text-outline-variant">record_voice_over</span>
+</div>
+<div class="font-mono text-[40px] leading-none font-medium tracking-tight mt-auto z-10">1,204</div>
+<svg class="sparkline absolute bottom-0 left-0 w-full opacity-20 group-hover:opacity-100 transition-opacity duration-500" preserveaspectratio="none" viewbox="0 0 100 40">
+<path d="M0 20 L 20 20 L 30 10 L 40 25 L 50 5 L 60 15 L 80 15 L 100 10 L 100 40 L 0 40 Z" fill="rgba(0,0,0,0.03)"></path>
+<path d="M0 20 L 20 20 L 30 10 L 40 25 L 50 5 L 60 15 L 80 15 L 100 10" fill="none" stroke="#000" stroke-width="1"></path>
+</svg>
+</article>
+<!-- Card 3 -->
+<article class="glass-card p-6 flex flex-col justify-between h-48 rounded-lg relative overflow-hidden group">
+<div class="flex justify-between items-start">
+<h3 class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">ROADMAP COMPLETION RATE</h3>
+<span class="material-symbols-outlined text-outline-variant">flag</span>
+</div>
+<div class="font-mono text-[40px] leading-none font-medium tracking-tight mt-auto z-10">68.2%</div>
+<svg class="sparkline absolute bottom-0 left-0 w-full opacity-20 group-hover:opacity-100 transition-opacity duration-500" preserveaspectratio="none" viewbox="0 0 100 40">
+<path d="M0 35 Q 20 30, 40 20 T 80 10 T 100 5 L 100 40 L 0 40 Z" fill="rgba(0,0,0,0.03)"></path>
+<path d="M0 35 Q 20 30, 40 20 T 80 10 T 100 5" fill="none" stroke="#000" stroke-width="1"></path>
+</svg>
+</article>
+<!-- Card 4 -->
+<article class="glass-card p-6 flex flex-col justify-between h-48 rounded-lg relative overflow-hidden group">
+<div class="flex justify-between items-start">
+<h3 class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">AVG. SATISFACTION SCORE</h3>
+<span class="material-symbols-outlined text-outline-variant">star_rate</span>
+</div>
+<div class="font-mono text-[40px] leading-none font-medium tracking-tight mt-auto z-10">4.8<span class="text-[20px] text-secondary">/5</span></div>
+<svg class="sparkline absolute bottom-0 left-0 w-full opacity-20 group-hover:opacity-100 transition-opacity duration-500" preserveaspectratio="none" viewbox="0 0 100 40">
+<path d="M0 10 L 20 12 L 40 8 L 60 10 L 80 5 L 100 5 L 100 40 L 0 40 Z" fill="rgba(0,0,0,0.03)"></path>
+<path d="M0 10 L 20 12 L 40 8 L 60 10 L 80 5 L 100 5" fill="none" stroke="#000" stroke-width="1"></path>
+</svg>
+</article>
+</section>
+<!-- Charts Row -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mb-stack-xl">
+<!-- Line Chart Area -->
+<article class="lg:col-span-2 glass-card p-8 rounded-lg flex flex-col">
+<header class="flex justify-between items-center mb-8 hairline-b pb-4">
+<h2 class="font-headline-lg text-[24px] text-primary">User Growth Over Time</h2>
+<span class="material-symbols-outlined text-outline-variant">show_chart</span>
+</header>
+<div class="flex-1 w-full min-h-[300px] relative flex items-end pt-8">
+<!-- Faux Y-Axis -->
+<div class="absolute left-0 top-8 bottom-0 w-8 flex flex-col justify-between text-mono-label text-secondary font-mono-label border-r border-[#E5E5E5] pr-2">
+<span>30k</span>
+<span>20k</span>
+<span>10k</span>
+<span>0</span>
+</div>
+<!-- Chart Graphic -->
+<div class="flex-1 h-full ml-10 relative">
+<!-- Grid lines -->
+<div class="absolute w-full h-full flex flex-col justify-between pointer-events-none">
+<div class="w-full border-b border-[#E5E5E5] border-dashed opacity-50"></div>
+<div class="w-full border-b border-[#E5E5E5] border-dashed opacity-50"></div>
+<div class="w-full border-b border-[#E5E5E5] border-dashed opacity-50"></div>
+<div class="w-full border-b border-[#E5E5E5] border-dashed opacity-50"></div>
+</div>
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 300">
+<!-- Gradient Fill -->
+<defs>
+<lineargradient id="chart-grad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#000" stop-opacity="0.1"></stop>
+<stop offset="100%" stop-color="#000" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,280 L100,260 L200,270 L300,220 L400,180 L500,200 L600,150 L700,160 L800,100 L900,120 L1000,50 L1000,300 L0,300 Z" fill="url(#chart-grad)"></path>
+<!-- Stroke -->
+<path d="M0,280 L100,260 L200,270 L300,220 L400,180 L500,200 L600,150 L700,160 L800,100 L900,120 L1000,50" fill="none" stroke="#000" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<!-- Data Points -->
+<circle class="hover:r-[6px] transition-all cursor-pointer" cx="100" cy="260" fill="#000" r="4"></circle>
+<circle class="hover:r-[6px] transition-all cursor-pointer" cx="400" cy="180" fill="#000" r="4"></circle>
+<circle class="hover:r-[6px] transition-all cursor-pointer" cx="800" cy="100" fill="#000" r="4"></circle>
+<circle class="hover:r-[6px] transition-all cursor-pointer" cx="1000" cy="50" fill="#000" r="4"></circle>
+</svg>
+</div>
+</div>
+<!-- Faux X-Axis -->
+<div class="w-full flex justify-between ml-10 mt-4 text-mono-label text-secondary font-mono-label">
+<span>Week 1</span>
+<span>Week 2</span>
+<span>Week 3</span>
+<span>Week 4</span>
+</div>
+</article>
+<!-- Bar Chart Area -->
+<article class="glass-card p-8 rounded-lg flex flex-col">
+<header class="flex justify-between items-center mb-8 hairline-b pb-4">
+<h2 class="font-headline-lg text-[24px] text-primary">Engagement by Category</h2>
+<span class="material-symbols-outlined text-outline-variant">bar_chart</span>
+</header>
+<div class="flex-1 flex flex-col justify-end gap-6 pt-4">
+<!-- Bar Item -->
+<div class="w-full group">
+<div class="flex justify-between mb-2 font-mono-label text-mono-label">
+<span class="text-primary group-hover:font-bold transition-all">Software Engineering</span>
+<span class="text-secondary">45%</span>
+</div>
+<div class="w-full h-[2px] bg-surface-container-high relative">
+<div class="absolute left-0 top-0 h-full bg-primary w-[45%] transition-all duration-1000 ease-out group-hover:h-[4px] group-hover:-top-[1px]"></div>
+</div>
+</div>
+<!-- Bar Item -->
+<div class="w-full group">
+<div class="flex justify-between mb-2 font-mono-label text-mono-label">
+<span class="text-primary group-hover:font-bold transition-all">Product Design</span>
+<span class="text-secondary">28%</span>
+</div>
+<div class="w-full h-[2px] bg-surface-container-high relative">
+<div class="absolute left-0 top-0 h-full bg-primary w-[28%] transition-all duration-1000 ease-out group-hover:h-[4px] group-hover:-top-[1px]"></div>
+</div>
+</div>
+<!-- Bar Item -->
+<div class="w-full group">
+<div class="flex justify-between mb-2 font-mono-label text-mono-label">
+<span class="text-primary group-hover:font-bold transition-all">Data Science</span>
+<span class="text-secondary">15%</span>
+</div>
+<div class="w-full h-[2px] bg-surface-container-high relative">
+<div class="absolute left-0 top-0 h-full bg-primary w-[15%] transition-all duration-1000 ease-out group-hover:h-[4px] group-hover:-top-[1px]"></div>
+</div>
+</div>
+<!-- Bar Item -->
+<div class="w-full group">
+<div class="flex justify-between mb-2 font-mono-label text-mono-label">
+<span class="text-primary group-hover:font-bold transition-all">Marketing</span>
+<span class="text-secondary">12%</span>
+</div>
+<div class="w-full h-[2px] bg-surface-container-high relative">
+<div class="absolute left-0 top-0 h-full bg-primary w-[12%] transition-all duration-1000 ease-out group-hover:h-[4px] group-hover:-top-[1px]"></div>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- Ranked List Area -->
+<section class="glass-card rounded-lg p-8">
+<header class="flex justify-between items-center mb-8 hairline-b pb-4">
+<h2 class="font-headline-lg text-[24px] text-primary">Top Performing Roadmaps</h2>
+<button class="font-label-sm text-label-sm uppercase text-secondary hover:text-primary transition-colors flex items-center gap-1">
+                    VIEW ALL <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</header>
+<div class="flex flex-col gap-0">
+<!-- List Header -->
+<div class="grid grid-cols-12 gap-4 pb-4 font-label-sm text-label-sm text-secondary uppercase tracking-widest hairline-b">
+<div class="col-span-1">RANK</div>
+<div class="col-span-5">ROADMAP TITLE</div>
+<div class="col-span-3">MENTOR</div>
+<div class="col-span-3 text-right">COMPLETIONS</div>
+</div>
+<!-- List Item 1 -->
+<div class="grid grid-cols-12 gap-4 py-6 items-center hairline-b hover:bg-surface-container-lowest transition-colors group cursor-pointer">
+<div class="col-span-1 font-mono text-[18px] text-outline-variant font-light group-hover:text-primary transition-colors">01</div>
+<div class="col-span-5">
+<div class="font-body-md text-primary font-medium group-hover:underline decoration-1 underline-offset-4">Advanced React Patterns</div>
+<div class="font-mono-label text-mono-label text-secondary mt-1">Software Engineering</div>
+</div>
+<div class="col-span-3 flex items-center gap-3">
+<img alt="Mentor Avatar" class="w-6 h-6 rounded-full object-cover grayscale" data-alt="A small black and white studio portrait of a software mentor. Minimalist lighting, stark contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR1kPuDdEUlPS3qbcsc9iWItuB3wO6GaHvRGBcXJHn0DfMCKxuqyynM627lsJuIrHibgeEKiTtHCrpZd7GFVo45xYYAOWLfGiopd6mJf6NVyRl-Bt2aHZyXHLsTrE2CViVCiMcjgC-_eVseP0jKmmznSwh7NW9lPHYZ5a7pRhQNaS0wWM9O2UGd1LmY_K4aZsspZMXbvse8Z-LqPNZWtCO5_4NiJ9MGqFubdXyHLPs0MrBwith8g-1s1jB_My_t088Liq1ambN75G8"/>
+<span class="font-body-md text-secondary text-[14px]">Sarah Jenkins</span>
+</div>
+<div class="col-span-3 text-right font-mono text-primary">1,420</div>
+</div>
+<!-- List Item 2 -->
+<div class="grid grid-cols-12 gap-4 py-6 items-center hairline-b hover:bg-surface-container-lowest transition-colors group cursor-pointer">
+<div class="col-span-1 font-mono text-[18px] text-outline-variant font-light group-hover:text-primary transition-colors">02</div>
+<div class="col-span-5">
+<div class="font-body-md text-primary font-medium group-hover:underline decoration-1 underline-offset-4">UX Research Fundamentals</div>
+<div class="font-mono-label text-mono-label text-secondary mt-1">Product Design</div>
+</div>
+<div class="col-span-3 flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container-high border border-[#E5E5E5] flex items-center justify-center font-mono-label text-secondary">DT</div>
+<span class="font-body-md text-secondary text-[14px]">David Tran</span>
+</div>
+<div class="col-span-3 text-right font-mono text-primary">985</div>
+</div>
+<!-- List Item 3 -->
+<div class="grid grid-cols-12 gap-4 py-6 items-center hairline-b hover:bg-surface-container-lowest transition-colors group cursor-pointer">
+<div class="col-span-1 font-mono text-[18px] text-outline-variant font-light group-hover:text-primary transition-colors">03</div>
+<div class="col-span-5">
+<div class="font-body-md text-primary font-medium group-hover:underline decoration-1 underline-offset-4">Machine Learning Intro</div>
+<div class="font-mono-label text-mono-label text-secondary mt-1">Data Science</div>
+</div>
+<div class="col-span-3 flex items-center gap-3">
+<img alt="Mentor Avatar" class="w-6 h-6 rounded-full object-cover grayscale" data-alt="A small black and white studio portrait of a data science mentor. Clean, sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBedJkC83eMqJxWMwFhJGmNrOYgVV6pum2dsKGXx8Ghy7S4pfV_bvo6oRQjKypYgzM1b6zUNoJ9TG-tkegpV09pQFOqfWz_bG5m4E5g8BSFquQAHGPrk2ViUeEi2lPu65Bcm35eZ03MZMhgV5KB92Lj25jLIsK8QW19A8VNRaDBxflqs9asLrBLi8D64t4hfYF4Bskzf1yvYcjY-oYrCVJAgs3qjb6wfRO9yOabpxuUGevKO1Nf9N2_QkB08mnKcWrgOPNYJ_YxciBk"/>
+<span class="font-body-md text-secondary text-[14px]">Elena Rostova</span>
+</div>
+<div class="col-span-3 text-right font-mono text-primary">842</div>
+</div>
+<!-- List Item 4 -->
+<div class="grid grid-cols-12 gap-4 py-6 items-center hover:bg-surface-container-lowest transition-colors group cursor-pointer">
+<div class="col-span-1 font-mono text-[18px] text-outline-variant font-light group-hover:text-primary transition-colors">04</div>
+<div class="col-span-5">
+<div class="font-body-md text-primary font-medium group-hover:underline decoration-1 underline-offset-4">B2B Content Strategy</div>
+<div class="font-mono-label text-mono-label text-secondary mt-1">Marketing</div>
+</div>
+<div class="col-span-3 flex items-center gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container-high border border-[#E5E5E5] flex items-center justify-center font-mono-label text-secondary">MK</div>
+<span class="font-body-md text-secondary text-[14px]">Marcus Kline</span>
+</div>
+<div class="col-span-3 text-right font-mono text-primary">610</div>
+</div>
+</div>
+</section>
+</main>
+<script>
+        // Simple script to add slight entrance animation to cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body></html>

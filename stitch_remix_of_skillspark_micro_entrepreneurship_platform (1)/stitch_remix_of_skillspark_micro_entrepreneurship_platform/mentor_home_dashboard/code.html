@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillSpark - Mentor Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#484645",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-bright": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#e6e1df",
+                        "primary-fixed": "#e5e2e1",
+                        "on-background": "#1a1c1c",
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "secondary": "#5e5e5e",
+                        "outline": "#747878",
+                        "on-tertiary-container": "#868381",
+                        "surface-container": "#eeeeee",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-low": "#f3f3f4",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c4c7c7",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dadada",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-secondary-container": "#646464",
+                        "surface-tint": "#5f5e5e",
+                        "tertiary": "#000000",
+                        "inverse-on-surface": "#f0f1f1",
+                        "secondary-container": "#e3e2e2",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary-container": "#858383",
+                        "tertiary-container": "#1d1b1a",
+                        "on-primary-fixed-variant": "#474646",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "surface": "#f9f9f9",
+                        "secondary-fixed": "#e3e2e2",
+                        "inverse-primary": "#c9c6c5",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "primary-container": "#1c1b1b",
+                        "primary": "#000000",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9f9",
+                        "on-surface-variant": "#444748"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-page": "64px",
+                        "stack-xl": "120px",
+                        "stack-sm": "12px",
+                        "stack-md": "48px"
+                    },
+                    "fontFamily": {
+                        "mono-label": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Playfair Display"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "mono-label": ["10px", { "lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "headline-xl": ["80px", { "lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.surface-bright');
+            color: theme('colors.on-surface');
+        }
+        
+        /* High-fidelity Glassmorphism utilities */
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid theme('colors.outline-variant');
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .glass-card-hover:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .minimal-scrollbar::-webkit-scrollbar {
+            height: 4px;
+        }
+        .minimal-scrollbar::-webkit-scrollbar-track {
+            background: theme('colors.surface-variant');
+        }
+        .minimal-scrollbar::-webkit-scrollbar-thumb {
+            background: theme('colors.outline');
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col md:flex-row pb-24 md:pb-0">
+<!-- Web TopNavBar (Hidden on Mobile) -->
+<nav class="hidden md:flex flex-row bg-surface/80 dark:bg-surface-container-lowest/80 backdrop-blur-xl fixed top-0 w-full border-b border-outline-variant/30 shadow-sm flex justify-between items-center px-margin-page py-6 w-full z-50">
+<div class="font-headline-lg text-headline-lg text-tertiary dark:text-white tracking-tighter uppercase">
+            SkillSpark
+        </div>
+<div class="flex gap-8 items-center">
+<a class="font-body-md text-body-md uppercase tracking-widest text-primary dark:text-white border-b-2 border-primary pb-1 hover:opacity-70 transition-opacity duration-300" href="#">Home</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-secondary dark:text-on-surface-variant hover:opacity-70 transition-opacity duration-300" href="#">Mentees</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-secondary dark:text-on-surface-variant hover:opacity-70 transition-opacity duration-300" href="#">Resources</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-secondary dark:text-on-surface-variant hover:opacity-70 transition-opacity duration-300" href="#">Profile</a>
+<div class="flex gap-4 ml-8 border-l border-outline-variant/50 pl-8">
+<button class="hover:opacity-70 transition-opacity duration-300 text-primary">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:opacity-70 transition-opacity duration-300 text-primary">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Hidden on Mobile, replaces TopNav structurally in a real app, but showing layout variation here as per prompt's structural hints, will use TopNav for web and BottomNav for mobile to satisfy platform constraint) -->
+<!-- The prompt asks for SideNav but also says "PROHIBIT top-row text links and use BottomNavBar on MOBILE". We will implement the TopNav for desktop and BottomNav for mobile as per the strict Platform & Layout rule. -->
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-5 md:px-margin-page pt-8 md:pt-32 flex flex-col gap-stack-md">
+<!-- Header Section -->
+<header class="flex flex-col gap-stack-sm md:col-span-12 mt-12 md:mt-0">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-xl md:text-headline-xl text-primary max-w-3xl leading-tight">
+                Welcome Back, <br class="md:hidden"/>Eleanor.
+            </h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl mt-4">
+                Your mentorship ecosystem is active. You have pending questions requiring attention before your next session.
+            </p>
+</header>
+<!-- Stats Grid (Bento style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+<!-- Stat 1 -->
+<div class="glass-panel p-8 flex flex-col justify-between glass-card-hover h-48">
+<div class="font-mono-label text-mono-label text-secondary uppercase tracking-widest">Active Mentees</div>
+<div class="flex items-end justify-between mt-auto">
+<div class="font-headline-lg text-headline-lg text-primary" style="font-family: monospace;">14</div>
+<!-- Minimal Sparkline Placeholder -->
+<div class="w-24 h-8 flex items-end gap-1 opacity-60">
+<div class="w-full h-1/4 bg-primary rounded-t-sm"></div>
+<div class="w-full h-2/4 bg-primary rounded-t-sm"></div>
+<div class="w-full h-1/3 bg-primary rounded-t-sm"></div>
+<div class="w-full h-3/4 bg-primary rounded-t-sm"></div>
+<div class="w-full h-full bg-primary rounded-t-sm"></div>
+</div>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="glass-panel p-8 flex flex-col justify-between glass-card-hover h-48">
+<div class="font-mono-label text-mono-label text-secondary uppercase tracking-widest">Sessions This Week</div>
+<div class="flex items-end justify-between mt-auto">
+<div class="font-headline-lg text-headline-lg text-primary" style="font-family: monospace;">08</div>
+<!-- Minimal Sparkline Placeholder -->
+<div class="w-24 h-8 flex items-end gap-1 opacity-60">
+<div class="w-full h-1/2 bg-primary rounded-t-sm"></div>
+<div class="w-full h-full bg-primary rounded-t-sm"></div>
+<div class="w-full h-1/4 bg-primary rounded-t-sm"></div>
+<div class="w-full h-2/3 bg-primary rounded-t-sm"></div>
+<div class="w-full h-1/3 bg-primary rounded-t-sm"></div>
+</div>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="glass-panel p-8 flex flex-col justify-between glass-card-hover h-48">
+<div class="font-mono-label text-mono-label text-secondary uppercase tracking-widest">Avg. Response Time</div>
+<div class="flex items-end justify-between mt-auto">
+<div class="font-headline-lg text-headline-lg text-primary" style="font-family: monospace;">2.4<span class="text-xl">h</span></div>
+<!-- Minimal Sparkline Placeholder -->
+<div class="w-24 h-8 flex items-end gap-1 opacity-60">
+<div class="w-full h-full bg-primary rounded-t-sm"></div>
+<div class="w-full h-3/4 bg-primary rounded-t-sm"></div>
+<div class="w-full h-1/2 bg-primary rounded-t-sm"></div>
+<div class="w-full h-1/3 bg-primary rounded-t-sm"></div>
+<div class="w-full h-1/4 bg-primary rounded-t-sm"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Asymmetric Layout: Pending Q&A & Upcoming Sessions -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mt-stack-md">
+<!-- Pending Q&A (Spans 8 cols) -->
+<section class="md:col-span-8 flex flex-col gap-6">
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-4">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Pending Q&amp;A</h2>
+<a class="font-mono-label text-mono-label text-secondary hover:text-primary uppercase tracking-widest" href="#">View All</a>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Q&A Item 1 -->
+<div class="glass-panel p-6 flex flex-col md:flex-row gap-4 justify-between items-start md:items-center glass-card-hover">
+<div class="flex flex-col gap-2 max-w-lg">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A tightly cropped, high-contrast black and white portrait of a young professional in a minimalist studio setting. The lighting is stark and dramatic, emphasizing facial structure against a pure white background. The mood is serious and focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-niJM0lpOQiSCVQfZQAnVTSwkUx359iq_mD3D3aROx9YyRt_-e_VGuHpY0t9lZCFo8Fd-KTdvvnUT20PhwTu18AvVWLUSYulHUT7EFkKeYNGCriRNrEmSgxx-Dnn-gk5eVl-RTLQNfQjTRY8N9Q5E-ZR6dKNlL54NSpb8c6G-y9XKVggQ-SpvQQBwLSkx1jdBT7W7hnGyXbJlc5yk4npq2FkTjSicVU15MGbYoDa9FkHauVLJyATUyXhyzeNgk8RHdt_KJ8tNiESI"/>
+</div>
+<span class="font-label-sm text-label-sm text-primary uppercase">Marcus Chen</span>
+<span class="font-mono-label text-mono-label text-outline">• 2h ago</span>
+</div>
+<p class="font-body-md text-body-md text-secondary line-clamp-2">
+                                I'm struggling with the architectural layout for the new microservices deployment. Should we centralize the auth gateway or distribute it?
+                            </p>
+</div>
+<button class="shrink-0 px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-on-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest mt-4 md:mt-0">
+                            Reply
+                        </button>
+</div>
+<!-- Q&A Item 2 -->
+<div class="glass-panel p-6 flex flex-col md:flex-row gap-4 justify-between items-start md:items-center glass-card-hover">
+<div class="flex flex-col gap-2 max-w-lg">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A stark, minimalist profile shot of a creative professional wearing a dark turtleneck against a bright, sterile white studio background. The lighting is high-key, creating a crisp, editorial look without distracting details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl4H5yVnPci39HzriGZKS2Op28Gya0WoQskE8ljqHx_bxJu3Y7TUtOGcy-TY0ddegeV7RIOYyoyxeIszMO2qbPlZjbLbHIxwPSD94QMzIZOqFa5nh5ndgfk7lVsF6Km4SPLjE6WScN7tZYeaMOD6nsUvnk9lnJbu9wH6IcqIonQEHdWwcZnOVnQcXf26jZA9DLLFqvjeq7Lk8KgLMeP2mVx2DqK6GVQdyIg2RqPw9AhFgeP9DTWjL5mod4s1yaP7TR_DbnCD4z7eSu"/>
+</div>
+<span class="font-label-sm text-label-sm text-primary uppercase">Sarah Jenkins</span>
+<span class="font-mono-label text-mono-label text-outline">• 5h ago</span>
+</div>
+<p class="font-body-md text-body-md text-secondary line-clamp-2">
+                                Regarding my portfolio review, do you think including the experimental VR project distracts from my core UX case studies?
+                            </p>
+</div>
+<button class="shrink-0 px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-on-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest mt-4 md:mt-0">
+                            Reply
+                        </button>
+</div>
+</div>
+</section>
+<!-- Upcoming Sessions (Spans 4 cols) -->
+<section class="md:col-span-4 flex flex-col gap-6 mt-12 md:mt-0">
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-4">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Next Up</h2>
+</div>
+<!-- Horizontal Scroll for Mobile, Stack for Desktop -->
+<div class="flex md:flex-col overflow-x-auto md:overflow-visible gap-4 pb-4 md:pb-0 minimal-scrollbar snap-x">
+<!-- Session Card -->
+<div class="glass-panel p-6 flex flex-col gap-4 min-w-[280px] md:min-w-0 snap-start relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary">14:00</span>
+<span class="font-mono-label text-mono-label text-secondary uppercase tracking-widest">Today</span>
+</div>
+<span class="px-2 py-1 bg-surface-variant text-primary font-mono-label text-mono-label rounded">45m</span>
+</div>
+<div class="pt-4 border-t border-outline-variant/20">
+<h3 class="font-label-sm text-label-sm text-primary uppercase">Portfolio Review</h3>
+<p class="font-body-md text-body-md text-secondary mt-1">with David L.</p>
+</div>
+</div>
+<!-- Session Card -->
+<div class="glass-panel p-6 flex flex-col gap-4 min-w-[280px] md:min-w-0 snap-start relative overflow-hidden opacity-70">
+<div class="absolute top-0 left-0 w-1 h-full bg-outline-variant"></div>
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary">09:30</span>
+<span class="font-mono-label text-mono-label text-secondary uppercase tracking-widest">Tomorrow</span>
+</div>
+<span class="px-2 py-1 bg-surface-variant text-primary font-mono-label text-mono-label rounded">30m</span>
+</div>
+<div class="pt-4 border-t border-outline-variant/20">
+<h3 class="font-label-sm text-label-sm text-primary uppercase">Code Architecture</h3>
+<p class="font-body-md text-body-md text-secondary mt-1">with Maya S.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Mobile Bottom NavBar (Hidden on Web) -->
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-sm glass-panel rounded-full px-6 py-4 z-50 flex justify-between items-center shadow-2xl">
+<!-- Active Item: Home -->
+<a class="flex flex-col items-center gap-1 text-primary group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-mono-label text-mono-label opacity-100">Home</span>
+<div class="w-1 h-1 rounded-full bg-primary mt-1"></div>
+</a>
+<a class="flex flex-col items-center gap-1 text-secondary hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-mono-label text-mono-label opacity-0 group-hover:opacity-100 transition-opacity">Mentees</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-secondary hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="library_books">library_books</span>
+<span class="font-mono-label text-mono-label opacity-0 group-hover:opacity-100 transition-opacity">Resources</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-secondary hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-mono-label text-mono-label opacity-0 group-hover:opacity-100 transition-opacity">Profile</span>
+</a>
+</nav>
+</body></html>

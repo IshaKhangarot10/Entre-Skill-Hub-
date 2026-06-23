@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Content Library Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "surface-variant": "#e2e2e2",
+                            "surface-container-highest": "#e2e2e2",
+                            "on-tertiary-fixed": "#1d1b1a",
+                            "on-surface-variant": "#444748",
+                            "on-tertiary-fixed-variant": "#484645",
+                            "surface-container-low": "#f3f3f4",
+                            "surface-container-lowest": "#ffffff",
+                            "secondary-fixed": "#e3e2e2",
+                            "surface": "#f9f9f9",
+                            "outline-variant": "#c4c7c7",
+                            "on-secondary-container": "#646464",
+                            "on-secondary-fixed-variant": "#464747",
+                            "on-error": "#ffffff",
+                            "on-primary-fixed-variant": "#474646",
+                            "background": "#f9f9f9",
+                            "surface-tint": "#5f5e5e",
+                            "surface-dim": "#dadada",
+                            "inverse-primary": "#c9c6c5",
+                            "error-container": "#ffdad6",
+                            "error": "#ba1a1a",
+                            "on-primary-fixed": "#1c1b1b",
+                            "inverse-surface": "#2f3131",
+                            "surface-bright": "#f9f9f9",
+                            "secondary-fixed-dim": "#c7c6c6",
+                            "primary": "#000000",
+                            "inverse-on-surface": "#f0f1f1",
+                            "on-secondary-fixed": "#1b1c1c",
+                            "on-primary-container": "#858383",
+                            "on-primary": "#ffffff",
+                            "on-tertiary": "#ffffff",
+                            "surface-container": "#eeeeee",
+                            "primary-fixed": "#e5e2e1",
+                            "tertiary-fixed": "#e6e1df",
+                            "secondary": "#5e5e5e",
+                            "primary-fixed-dim": "#c9c6c5",
+                            "on-secondary": "#ffffff",
+                            "on-background": "#1a1c1c",
+                            "outline": "#747878",
+                            "on-surface": "#1a1c1c",
+                            "on-error-container": "#93000a",
+                            "tertiary": "#000000",
+                            "tertiary-container": "#1d1b1a",
+                            "primary-container": "#1c1b1b",
+                            "on-tertiary-container": "#868381",
+                            "tertiary-fixed-dim": "#cac6c3",
+                            "surface-container-high": "#e8e8e8",
+                            "secondary-container": "#e3e2e2"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.125rem",
+                            "lg": "0.25rem",
+                            "xl": "0.5rem",
+                            "full": "0.75rem"
+                    },
+                    "spacing": {
+                            "margin-page": "64px",
+                            "stack-md": "48px",
+                            "stack-sm": "12px",
+                            "gutter": "24px",
+                            "stack-xl": "120px"
+                    },
+                    "fontFamily": {
+                            "headline-xl": ["Playfair Display"],
+                            "headline-lg": ["Playfair Display"],
+                            "label-sm": ["Inter"],
+                            "headline-lg-mobile": ["Playfair Display"],
+                            "body-md": ["Inter"],
+                            "body-lg": ["Inter"],
+                            "mono-label": ["Inter"]
+                    },
+                    "fontSize": {
+                            "headline-xl": ["80px", {"lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                            "headline-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                            "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "600"}],
+                            "headline-lg-mobile": ["32px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                            "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                            "mono-label": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen selection:bg-surface-variant">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 z-40 bg-surface/60 backdrop-blur-lg border-b border-outline-variant/30 flex items-center justify-between px-gutter h-16 transition-all duration-300">
+<div class="font-mono-label text-mono-label uppercase tracking-[0.2em] text-primary">
+            MENTORSHIP OVERSIGHT
+        </div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="text-secondary hover:opacity-70 transition-opacity scale-102 active:scale-98">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="text-secondary hover:opacity-70 transition-opacity scale-102 active:scale-98">
+<span class="material-symbols-outlined text-[20px]">history</span>
+</button>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] text-secondary">person</span>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="w-64 h-screen fixed left-0 top-0 border-r border-outline-variant/30 bg-surface/80 backdrop-blur-xl shadow-[20px_0_40px_rgba(0,0,0,0.02)] z-50 flex flex-col py-margin-page gap-stack-md">
+<div class="px-gutter mb-8">
+<h1 class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary">OVERSIGHT</h1>
+<p class="font-mono-label text-mono-label text-secondary mt-2">V.2.0.4 - PREMIUM</p>
+</div>
+<ul class="flex flex-col flex-grow gap-2 px-gutter">
+<!-- Queue -->
+<li>
+<a class="flex items-center gap-4 py-3 text-secondary transition-colors duration-300 hover:text-primary hover:bg-surface-container-low/50 transition-all duration-300 ease-in-out hover:pl-2 rounded-lg -mx-2 px-2" href="#">
+<span class="material-symbols-outlined">pending_actions</span>
+<span class="font-label-sm text-label-sm uppercase">Queue</span>
+</a>
+</li>
+<!-- Users & Mentors -->
+<li>
+<a class="flex items-center gap-4 py-3 text-secondary transition-colors duration-300 hover:text-primary hover:bg-surface-container-low/50 transition-all duration-300 ease-in-out hover:pl-2 rounded-lg -mx-2 px-2" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-sm text-label-sm uppercase">Users &amp; Mentors</span>
+</a>
+</li>
+<!-- Content Library (ACTIVE) -->
+<li>
+<a class="flex items-center gap-4 py-3 text-primary font-bold border-r-2 border-primary bg-surface-container-low/30 rounded-l-lg -mx-2 px-2 pl-4" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">library_books</span>
+<span class="font-label-sm text-label-sm uppercase">Content Library</span>
+</a>
+</li>
+<!-- Analytics -->
+<li>
+<a class="flex items-center gap-4 py-3 text-secondary transition-colors duration-300 hover:text-primary hover:bg-surface-container-low/50 transition-all duration-300 ease-in-out hover:pl-2 rounded-lg -mx-2 px-2" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-sm text-label-sm uppercase">Analytics</span>
+</a>
+</li>
+<!-- Settings -->
+<li>
+<a class="flex items-center gap-4 py-3 text-secondary transition-colors duration-300 hover:text-primary hover:bg-surface-container-low/50 transition-all duration-300 ease-in-out hover:pl-2 rounded-lg -mx-2 px-2" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm uppercase">Settings</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto px-gutter flex flex-col gap-4">
+<button class="w-full border border-outline-variant/30 py-3 text-center text-primary hover:bg-surface-variant transition-colors font-label-sm text-label-sm uppercase tracking-wider">
+                SYSTEM LOGS
+            </button>
+<ul class="flex flex-col gap-2 pt-4 border-t border-outline-variant/30">
+<li>
+<a class="flex items-center gap-4 py-2 text-secondary hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">help_outline</span>
+<span class="font-mono-label text-mono-label">Support</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 py-2 text-secondary hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+<span class="font-mono-label text-mono-label">Sign Out</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-margin-page min-h-[calc(100vh-64px)]">
+<!-- Header Section -->
+<div class="flex items-end justify-between mb-stack-md">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-primary max-w-4xl tracking-tighter">
+                    Content Library
+                </h1>
+</div>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-sm hover:scale-[1.02] transition-transform font-label-sm text-label-sm uppercase tracking-widest shadow-[0_10px_20px_rgba(0,0,0,0.1)] flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                Add New Resource
+            </button>
+</div>
+<!-- Filter Row -->
+<div class="flex items-center gap-4 mb-stack-md border-b border-outline-variant/30 pb-6">
+<span class="font-mono-label text-mono-label text-secondary uppercase tracking-[0.2em] mr-4">Filters</span>
+<button class="bg-surface-variant text-on-surface-variant px-5 py-2 rounded-md font-label-sm text-label-sm uppercase tracking-widest border border-transparent hover:border-outline-variant/50 transition-colors flex items-center gap-2">
+                Type: All
+                <span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+<button class="bg-transparent text-secondary px-5 py-2 rounded-md font-label-sm text-label-sm uppercase tracking-widest border border-outline-variant/30 hover:bg-surface-variant transition-colors flex items-center gap-2">
+                Stage: Advanced
+                <span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+<button class="bg-transparent text-secondary px-5 py-2 rounded-md font-label-sm text-label-sm uppercase tracking-widest border border-outline-variant/30 hover:bg-surface-variant transition-colors flex items-center gap-2">
+                Status: Published
+                <span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+</div>
+<!-- Content Grid (Glassmorphism & Asymmetric Feel) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+<!-- Card 1 -->
+<article class="bg-surface/60 backdrop-blur-[20px] border border-outline-variant/30 p-4 shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)] transition-all duration-500 group flex flex-col gap-4 relative overflow-hidden rounded-lg">
+<div class="w-full aspect-[4/3] bg-surface-variant relative overflow-hidden rounded-md border border-outline-variant/20">
+<img class="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply transition-transform duration-700 group-hover:scale-105 group-hover:opacity-100" data-alt="A highly detailed, minimalist digital illustration of structural beams and geometric nodes, representing complex technical architecture. High contrast, sharp lines, ultra-premium editorial aesthetic with subtle glass textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-WhAh_B18ve2ggRVueQhJhLULlo3LCg4BDfR1jOrYcghZgypGvimP8sM5wnRps5-fqpn-AaOBNVqEhWmgVOrWRfEB80RLq5pTW5rveoo2AGZPoRGTf60im3HtVqitimYLcIjZCJA3Q8CbqQMyhJZX2VzfnByImUXfTDqz2tzJg-w26J2G0jqCQI_VKxCyFAxpLPhuPpVHMr9bMA7Ve_sVMzc6MrH42lwowZeH1LQQ7SPUlY49oI6Rd64uOcODSwtZt2JXekbYWdRu"/>
+<div class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-3 py-1 rounded font-mono-label text-mono-label uppercase text-primary border border-outline-variant/30">
+                        Article
+                    </div>
+</div>
+<div class="flex flex-col flex-grow gap-2 mt-2">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary leading-tight">
+                        Architecting Scalable Micro-Frontends
+                    </h2>
+<div class="flex items-center gap-4 mt-auto pt-4 border-t border-outline-variant/20">
+<span class="font-mono-label text-mono-label text-secondary uppercase">Stage: Sen.</span>
+<span class="font-mono-label text-mono-label text-primary font-bold uppercase flex items-center gap-1 before:content-[''] before:w-1.5 before:h-1.5 before:bg-primary before:rounded-full">Published</span>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface/60 backdrop-blur-[20px] border border-outline-variant/30 p-4 shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)] transition-all duration-500 group flex flex-col gap-4 relative overflow-hidden rounded-lg">
+<div class="w-full aspect-[4/3] bg-surface-variant relative overflow-hidden rounded-md border border-outline-variant/20">
+<img class="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply transition-transform duration-700 group-hover:scale-105 group-hover:opacity-100" data-alt="Abstract macro photography of brushed aluminum and frosted glass overlapping, creating minimal tension. Light mode aesthetic, sharp studio lighting, achromatic color palette with deep shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9joQTy9Zew4LAn0MuNhSXa0_36cOK1khDr2iEOc9vxo882t2kUobgg0CsnQ0lgZHj59VGxptT6r5b-E5SF6jgx2WF90seNQtEQ5WxK1EKwtt2JeyvknDjy7gIqiiya_Fz0hjekX2lirR7J04lSjPHDLhFGwi72F4SEThpcy3mSeiPNAcADd2bMhbjEAAyIxxUWEz8ly4kSOeHD6mBX4npuocy57EiSS9HbnGvGnKlKipY2JsjqBRKzd17UiLSr8N24-3SUzhTfPib"/>
+<div class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-3 py-1 rounded font-mono-label text-mono-label uppercase text-primary border border-outline-variant/30">
+                        Video
+                    </div>
+</div>
+<div class="flex flex-col flex-grow gap-2 mt-2">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary leading-tight">
+                        Negotiating Technical Debt at Scale
+                    </h2>
+<div class="flex items-center gap-4 mt-auto pt-4 border-t border-outline-variant/20">
+<span class="font-mono-label text-mono-label text-secondary uppercase">Stage: Staff</span>
+<span class="font-mono-label text-mono-label text-secondary uppercase flex items-center gap-1 before:content-[''] before:w-1.5 before:h-1.5 before:bg-outline-variant before:rounded-full">Draft</span>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface/60 backdrop-blur-[20px] border border-outline-variant/30 p-4 shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)] transition-all duration-500 group flex flex-col gap-4 relative overflow-hidden rounded-lg xl:col-span-2">
+<div class="w-full h-48 bg-surface-variant relative overflow-hidden rounded-md border border-outline-variant/20">
+<img class="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply transition-transform duration-700 group-hover:scale-105 group-hover:opacity-100" data-alt="A wide panoramic view of an empty, minimalist modern gallery space with stark white walls and dramatic, razor-sharp shadows cast by invisible skylights. Ultra-premium, cold, precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Y3wwDBWsuTk7k_FDE29c0wH8u_hcwq6l05Wdy-ZlcrSASTQ1ENKHLkDXGANB0lIR_QGMQUukDjORbav2i6tXtfZ3PhZjyX-S9yydZ0FU1CvQ2jzIPdSauudgNRubFzUdNgIQquYYLJWOms4s3OAYxaqEt050558QYQnPzPENCJweml7VP21XtiJOyWJDhx1dTGt2eebB-_AJNFXHQCLpIoW8ZDreQgIrrXcwTQ6j7NwMGOlVHUg8rDlKXdFmq2N1-1GgOOFBE-Mp"/>
+<div class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-3 py-1 rounded font-mono-label text-mono-label uppercase text-primary border border-outline-variant/30">
+                        Pathway
+                    </div>
+</div>
+<div class="flex flex-col flex-grow gap-2 mt-2">
+<h2 class="font-headline-lg text-headline-lg text-primary leading-tight">
+                        The Principal Engineer's Playbook: Influence Without Authority
+                    </h2>
+<p class="font-body-md text-body-md text-secondary max-w-2xl mt-2 line-clamp-2">
+                        A comprehensive multi-module pathway detailing the soft skills and strategic thinking required to operate effectively across large organizational boundaries.
+                    </p>
+<div class="flex items-center gap-4 mt-auto pt-4 border-t border-outline-variant/20">
+<span class="font-mono-label text-mono-label text-secondary uppercase">Stage: Princ.</span>
+<span class="font-mono-label text-mono-label text-primary font-bold uppercase flex items-center gap-1 before:content-[''] before:w-1.5 before:h-1.5 before:bg-primary before:rounded-full">Published</span>
+</div>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="bg-surface/60 backdrop-blur-[20px] border border-outline-variant/30 p-4 shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)] transition-all duration-500 group flex flex-col gap-4 relative overflow-hidden rounded-lg">
+<div class="w-full aspect-[4/3] bg-surface-variant relative overflow-hidden rounded-md border border-outline-variant/20">
+<img class="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply transition-transform duration-700 group-hover:scale-105 group-hover:opacity-100" data-alt="Minimalist data visualization pattern using thin black lines on a white background, resembling complex network topography or architectural blueprints. High fidelity, crisp edges." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgOttzOKI744jarw-nHFdxLKjsMecy9TvgxtBS2NTNGZZHo3RI9YTmExyixw1gxAOpBa9rLnKibmoh50PpTe5HDMn-zJFG1yMA_H2FUj66Jt4ulvH8R6i67Ur4qyNzIOfLNJnwnFmtYM_p2Kh-x3Vlt7W6ULTG93dS8_wnccSLoZZ_4Uq7Lkqvx60o3t06JO-1im6VoMXzjw_WqbjhCRkDg9abAt607so4j3aA0rQ4LXVsEeNZJ1TFzxN0D2WGKVQyXOtr-Ccg0ynt"/>
+<div class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-3 py-1 rounded font-mono-label text-mono-label uppercase text-primary border border-outline-variant/30">
+                        Template
+                    </div>
+</div>
+<div class="flex flex-col flex-grow gap-2 mt-2">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary leading-tight">
+                        RFC Document Structure Framework
+                    </h2>
+<div class="flex items-center gap-4 mt-auto pt-4 border-t border-outline-variant/20">
+<span class="font-mono-label text-mono-label text-secondary uppercase">Stage: All</span>
+<span class="font-mono-label text-mono-label text-primary font-bold uppercase flex items-center gap-1 before:content-[''] before:w-1.5 before:h-1.5 before:bg-primary before:rounded-full">Published</span>
+</div>
+</div>
+</article>
+</div>
+</main>
+</body></html>

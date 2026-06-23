@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SKILLSPARK - Mentor Sign Up</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e2e2e2",
+                        "surface": "#f9f9f9",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-container-low": "#f3f3f4",
+                        "on-secondary-fixed-variant": "#464747",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-bright": "#f9f9f9",
+                        "secondary-fixed": "#e3e2e2",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#e5e2e1",
+                        "on-background": "#1a1c1c",
+                        "tertiary": "#000000",
+                        "inverse-primary": "#c9c6c5",
+                        "outline-variant": "#c4c7c7",
+                        "tertiary-fixed": "#e6e1df",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#5f5e5e",
+                        "on-surface-variant": "#444748",
+                        "on-primary-fixed": "#1c1b1b",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#868381",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#747878",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "primary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-container": "#eeeeee",
+                        "inverse-surface": "#2f3131",
+                        "secondary": "#5e5e5e",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#858383",
+                        "background": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-primary-fixed-variant": "#474646",
+                        "secondary-container": "#e3e2e2",
+                        "tertiary-container": "#1d1b1a",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "on-secondary-container": "#646464",
+                        "surface-dim": "#dadada",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "48px",
+                        "stack-xl": "120px",
+                        "stack-sm": "12px",
+                        "gutter": "24px",
+                        "margin-page": "64px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-xl": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "mono-label": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-xl": ["80px", {"lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "mono-label": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.surface-container-lowest'); }
+        /* Custom form input styles */
+        .input-line {
+            border: none;
+            border-bottom: 1px solid theme('colors.outline-variant');
+            border-radius: 0;
+            padding-left: 0;
+            padding-right: 0;
+            background-color: transparent;
+        }
+        .input-line:focus {
+            outline: none;
+            box-shadow: none;
+            border-bottom: 2px solid theme('colors.primary');
+        }
+        select.input-line {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-on-surface antialiased bg-surface-container-lowest selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation (Suppressed - Transactional flow) -->
+<!-- Content Canvas -->
+<main class="flex-grow flex flex-col lg:flex-row w-full min-h-screen">
+<!-- Left Side: Editorial Typography -->
+<div class="hidden lg:flex w-1/2 p-margin-page flex-col justify-center items-start bg-surface-container-lowest relative overflow-hidden">
+<!-- Background abstract shape -->
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-surface-container-highest/50 rounded-full blur-3xl opacity-50 z-0"></div>
+<div class="z-10 relative">
+<a class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary mb-stack-xl block" href="#">SKILLSPARK</a>
+<h1 class="font-headline-xl text-headline-xl text-primary leading-tight max-w-2xl">
+                    JOIN<br/>
+                    THE<br/>
+                    NETWORK.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-stack-md max-w-md">
+                    Shape the next generation of technical talent. Connect with driven individuals seeking expert guidance in an exclusive, curated environment.
+                </p>
+</div>
+</div>
+<!-- Right Side: Form Card -->
+<div class="w-full lg:w-1/2 p-6 md:p-margin-page flex flex-col justify-center items-center lg:items-start bg-surface/30 relative">
+<!-- Mobile Header (Visible only on mobile) -->
+<div class="w-full lg:hidden flex justify-between items-center mb-stack-md">
+<a class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tighter text-primary" href="#">SKILLSPARK</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest" href="#"><span class="material-symbols-outlined text-xl align-middle">close</span></a>
+</div>
+<!-- Form Container (Glassmorphism Card) -->
+<div class="w-full max-w-lg bg-surface-container-lowest/80 backdrop-blur-xl border border-surface-variant/30 p-8 md:p-12 shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<div class="mb-stack-md lg:hidden">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Join the Network</h2>
+</div>
+<form action="#" class="space-y-8" method="POST">
+<!-- Full Name -->
+<div class="relative">
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-[0.12em] mb-2" for="fullName">Full Name</label>
+<input class="input-line w-full font-body-md text-body-md text-primary pb-2" id="fullName" name="fullName" placeholder="Jane Doe" required="" type="text"/>
+</div>
+<!-- Email / Phone -->
+<div class="relative">
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-[0.12em] mb-2" for="contact">Email or Phone</label>
+<input class="input-line w-full font-body-md text-body-md text-primary pb-2" id="contact" name="contact" placeholder="hello@example.com" required="" type="text"/>
+</div>
+<!-- Password -->
+<div class="relative">
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-[0.12em] mb-2" for="password">Password</label>
+<input class="input-line w-full font-body-md text-body-md text-primary pb-2" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+<!-- Area of Expertise -->
+<div class="relative">
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-[0.12em] mb-2" for="expertise">Area of Expertise</label>
+<div class="relative">
+<select class="input-line w-full font-body-md text-body-md text-primary pb-2 cursor-pointer bg-transparent" id="expertise" name="expertise">
+<option disabled="" selected="" value="">Select Discipline</option>
+<option value="design">Product Design</option>
+<option value="engineering">Software Engineering</option>
+<option value="data">Data Science</option>
+<option value="strategy">Business Strategy</option>
+</select>
+<span class="material-symbols-outlined absolute right-0 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Years of Experience (Segmented Control) -->
+<div class="space-y-4">
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-[0.12em]">Years of Experience</label>
+<div class="flex border border-outline-variant divide-x divide-outline-variant">
+<label class="flex-1 cursor-pointer">
+<input class="peer sr-only" name="experience" type="radio" value="0-2"/>
+<div class="w-full text-center py-3 font-mono-label text-mono-label text-on-surface-variant peer-checked:bg-primary peer-checked:text-on-primary transition-colors duration-200">
+                                    0-2
+                                </div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input checked="" class="peer sr-only" name="experience" type="radio" value="3-5"/>
+<div class="w-full text-center py-3 font-mono-label text-mono-label text-on-surface-variant peer-checked:bg-primary peer-checked:text-on-primary transition-colors duration-200">
+                                    3-5
+                                </div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="peer sr-only" name="experience" type="radio" value="6-10"/>
+<div class="w-full text-center py-3 font-mono-label text-mono-label text-on-surface-variant peer-checked:bg-primary peer-checked:text-on-primary transition-colors duration-200">
+                                    6-10
+                                </div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="peer sr-only" name="experience" type="radio" value="10+"/>
+<div class="w-full text-center py-3 font-mono-label text-mono-label text-on-surface-variant peer-checked:bg-primary peer-checked:text-on-primary transition-colors duration-200">
+                                    10+
+                                </div>
+</label>
+</div>
+</div>
+<!-- Actions -->
+<div class="pt-stack-sm flex flex-col gap-4">
+<button class="w-full bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-[0.12em] py-4 px-8 hover:scale-[1.02] transition-transform duration-200 flex justify-center items-center shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" type="submit">
+                            Continue
+                        </button>
+<div class="text-center font-mono-label text-mono-label text-on-surface-variant mt-4">
+                            ALREADY IN THE NETWORK? <a class="text-primary border-b border-primary pb-0.5 ml-2 hover:opacity-70 transition-opacity" href="#">SIGN IN</a>
+</div>
+</div>
+</form>
+</div>
+<!-- Contextual background element -->
+<div class="absolute bottom-0 right-0 w-64 h-64 bg-surface-container-high/40 blur-3xl rounded-full opacity-40 z-[-1] pointer-events-none"></div>
+</div>
+</main>
+</body></html>

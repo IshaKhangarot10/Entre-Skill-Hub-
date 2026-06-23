@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Roadmap Step - SkillSpark</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f9f9f9",
+                        "on-surface-variant": "#444748",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-surface": "#2f3131",
+                        "tertiary": "#000000",
+                        "on-secondary-container": "#646464",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "tertiary-container": "#1d1b1a",
+                        "on-tertiary-container": "#868381",
+                        "outline-variant": "#c4c7c7",
+                        "secondary-container": "#e3e2e2",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "surface-container-low": "#f3f3f4",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-tint": "#5f5e5e",
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#1c1b1b",
+                        "tertiary-fixed": "#e6e1df",
+                        "outline": "#747878",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "inverse-on-surface": "#f0f1f1",
+                        "secondary": "#5e5e5e",
+                        "surface-container": "#eeeeee",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#858383",
+                        "surface-dim": "#dadada",
+                        "primary-fixed": "#e5e2e1",
+                        "on-surface": "#1a1c1c",
+                        "primary": "#000000",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e2e2e2",
+                        "background": "#f9f9f9",
+                        "on-primary-fixed-variant": "#474646",
+                        "inverse-primary": "#c9c6c5",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#e3e2e2",
+                        "on-background": "#1a1c1c",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-page": "64px",
+                        "stack-md": "48px",
+                        "gutter": "24px",
+                        "stack-sm": "12px",
+                        "stack-xl": "120px"
+                    },
+                    "fontFamily": {
+                        "mono-label": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-xl": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "mono-label": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "600"}],
+                        "headline-xl": ["80px", {"lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #E5E5E5;
+        }
+        .editorial-shadow { box-shadow: 0 20px 40px rgba(0,0,0,0.04); }
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 24px 48px rgba(0,0,0,0.06); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col pt-[72px] pb-[80px] md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-page py-stack-sm md:flex hidden">
+<div class="font-headline-lg text-headline-lg text-primary dark:text-on-surface tracking-tighter">SkillSpark</div>
+<nav class="flex space-x-8">
+<a class="text-on-secondary-container dark:text-on-secondary-container font-label-sm text-label-sm tracking-[0.2em] uppercase hover:opacity-80 transition-opacity" href="#">HOME</a>
+<a class="text-primary dark:text-on-surface font-bold font-label-sm text-label-sm tracking-[0.2em] uppercase hover:opacity-80 transition-opacity" href="#">ROADMAPS</a>
+<a class="text-on-secondary-container dark:text-on-secondary-container font-label-sm text-label-sm tracking-[0.2em] uppercase hover:opacity-80 transition-opacity" href="#">MENTORS</a>
+<a class="text-on-secondary-container dark:text-on-secondary-container font-label-sm text-label-sm tracking-[0.2em] uppercase hover:opacity-80 transition-opacity" href="#">PROFILE</a>
+</nav>
+<button class="text-primary dark:text-on-surface hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+</header>
+<!-- Mobile Top Header (Simplified) -->
+<header class="bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 py-3 md:hidden">
+<div class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tighter">SkillSpark</div>
+<button class="text-primary hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex justify-center w-full max-w-7xl mx-auto px-4 md:px-margin-page pt-8 md:pt-16">
+<!-- Grid Container -->
+<div class="w-full grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-gutter">
+<!-- Main Content Column (Offset on Desktop) -->
+<div class="md:col-start-3 md:col-span-8 flex flex-col space-y-stack-md">
+<!-- Breadcrumb & Header -->
+<div class="flex flex-col space-y-4">
+<a class="inline-flex items-center text-primary hover:opacity-70 transition-opacity w-fit" href="#">
+<span class="material-symbols-outlined text-[14px] mr-2">arrow_left_alt</span>
+<span class="font-label-sm text-label-sm tracking-[0.2em] uppercase">BACK TO ROADMAP</span>
+</a>
+<div class="flex flex-col space-y-2 mt-8">
+<div class="flex items-center space-x-2 text-on-surface-variant mb-2">
+<span class="font-mono-label text-mono-label">STAGE 03</span>
+<div class="flex space-x-1">
+<div class="w-4 h-1 bg-primary"></div>
+<div class="w-4 h-1 bg-primary"></div>
+<div class="w-4 h-1 bg-outline-variant"></div>
+<div class="w-4 h-1 bg-outline-variant"></div>
+</div>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary">Legal &amp; Registration Steps</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-4">
+                            Navigate the crucial legal requirements for establishing your practice. This module covers essential documentation, liability considerations, and state-specific registrations to ensure you start on solid ground.
+                        </p>
+</div>
+</div>
+<!-- Video Module -->
+<section class="glass-card rounded-xl overflow-hidden hover-lift flex flex-col md:flex-row">
+<div class="relative w-full md:w-1/2 aspect-video bg-surface-variant">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A clean, minimalist workspace with a sleek laptop displaying legal documents. High-key lighting, stark white background with subtle grey tones. A pair of wire-rimmed glasses rests on the closed laptop lid. The mood is professional, analytical, and pristine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG_XOAtsSGyEp36DzeEAYKoTfyUeohFb8U6d6_0xJ1ZIjbUCIQekDyswVJUyonD33elHP-xlW7mOkZK1WQPh4YgF-agzMQmeqwqaUwFVZiyKS9pjOhaboiAQvgz-NUrZZ8Bhx9PnOw-KpbqWZDhLyhruPQXh0F8l_zBLfM2nP2xS0JmgDPaJEKv72o857jlOmMxhfz5i_WTvHaui4VEYIzIW4SSSqb7fK5jmFxmu6PghP40J0xE_WP9vIisCm7toCEDZiWiuL-do-4"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center group cursor-pointer">
+<div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center backdrop-blur-sm group-hover:scale-105 transition-transform">
+<div class="w-0 h-0 border-t-[10px] border-t-transparent border-l-[16px] border-l-black border-b-[10px] border-b-transparent ml-2"></div>
+</div>
+</div>
+<div class="absolute bottom-4 right-4 bg-black/80 text-white font-mono-label text-mono-label px-2 py-1 rounded backdrop-blur-md">
+                            04:32
+                        </div>
+</div>
+<div class="p-6 md:p-8 w-full md:w-1/2 flex flex-col justify-center bg-surface-container-lowest/80">
+<h3 class="font-label-sm text-label-sm tracking-[0.1em] text-on-surface-variant uppercase mb-2">REQUIRED VIEWING</h3>
+<h2 class="font-headline-lg-mobile text-[24px] leading-tight text-primary mb-4">Entity Formation Basics</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Understand the critical differences between LLCs, Sole Proprietorships, and S-Corps for independent practitioners.</p>
+</div>
+</section>
+<!-- Article / Checklist Module -->
+<section class="glass-card p-6 md:p-10 rounded-xl">
+<h3 class="font-headline-lg-mobile text-[28px] text-primary mb-6">Action Items</h3>
+<div class="space-y-6">
+<div class="flex items-start space-x-4">
+<div class="mt-1 relative flex items-center justify-center">
+<input class="peer appearance-none w-5 h-5 border border-outline rounded-sm bg-transparent checked:bg-primary checked:border-primary transition-colors cursor-pointer" id="check-1" type="checkbox"/>
+<span class="material-symbols-outlined absolute text-white text-[16px] pointer-events-none opacity-0 peer-checked:opacity-100">check</span>
+</div>
+<div>
+<label class="font-body-lg text-body-lg text-primary cursor-pointer block mb-1" for="check-1">File Articles of Organization</label>
+<p class="font-body-md text-body-md text-on-surface-variant">Submit the necessary paperwork to your Secretary of State to formally establish your LLC.</p>
+</div>
+</div>
+<div class="w-full h-px bg-surface-variant"></div>
+<div class="flex items-start space-x-4">
+<div class="mt-1 relative flex items-center justify-center">
+<input class="peer appearance-none w-5 h-5 border border-outline rounded-sm bg-transparent checked:bg-primary checked:border-primary transition-colors cursor-pointer" id="check-2" type="checkbox"/>
+<span class="material-symbols-outlined absolute text-white text-[16px] pointer-events-none opacity-0 peer-checked:opacity-100">check</span>
+</div>
+<div>
+<label class="font-body-lg text-body-lg text-primary cursor-pointer block mb-1" for="check-2">Obtain Employer Identification Number (EIN)</label>
+<p class="font-body-md text-body-md text-on-surface-variant">Apply via the IRS portal. This is required for opening business bank accounts.</p>
+</div>
+</div>
+<div class="w-full h-px bg-surface-variant"></div>
+<div class="flex items-start space-x-4">
+<div class="mt-1 relative flex items-center justify-center">
+<input class="peer appearance-none w-5 h-5 border border-outline rounded-sm bg-transparent checked:bg-primary checked:border-primary transition-colors cursor-pointer" id="check-3" type="checkbox"/>
+<span class="material-symbols-outlined absolute text-white text-[16px] pointer-events-none opacity-0 peer-checked:opacity-100">check</span>
+</div>
+<div>
+<label class="font-body-lg text-body-lg text-primary cursor-pointer block mb-1" for="check-3">Draft Operating Agreement</label>
+<p class="font-body-md text-body-md text-on-surface-variant">Define the internal operational procedures and financial framework of your new entity.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Downloadable Resources -->
+<section class="glass-card p-6 md:p-8 rounded-xl flex flex-col md:flex-row items-center justify-between hover-lift">
+<div class="flex items-center space-x-4 mb-4 md:mb-0 w-full md:w-auto">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant font-[100]">description</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm tracking-[0.1em] text-primary uppercase">Operating Agreement Template</h4>
+<p class="font-mono-label text-mono-label text-on-surface-variant mt-1">llc_op_agreement_v2.pdf (1.2 MB)</p>
+</div>
+</div>
+<button class="w-full md:w-auto px-6 py-3 border border-outline-variant rounded-lg font-label-sm text-label-sm uppercase tracking-widest flex items-center justify-center hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px] mr-2">download</span>
+                        Download
+                    </button>
+</section>
+<!-- Help Banner -->
+<section class="glass-card p-6 rounded-xl border border-primary/10 bg-gradient-to-r from-surface-container-lowest to-surface flex flex-col sm:flex-row items-center justify-between text-center sm:text-left">
+<div class="mb-4 sm:mb-0">
+<h4 class="font-body-lg text-body-lg text-primary font-medium">Need help navigating this step?</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Connect with a legal mentor for a brief consultation.</p>
+</div>
+<button class="px-6 py-3 border border-outline rounded-full font-label-sm text-label-sm uppercase tracking-widest text-primary hover:bg-surface-variant transition-colors shrink-0">
+                        Find a Mentor
+                    </button>
+</section>
+<!-- Bottom CTA -->
+<div class="pt-8 pb-12 flex justify-center border-t border-outline-variant/30">
+<button class="bg-primary text-on-primary px-12 py-4 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:scale-105 transition-transform duration-300 w-full sm:w-auto shadow-lg shadow-black/20">
+                        Mark as Complete
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="bg-surface/60 dark:bg-inverse-surface/60 backdrop-blur-2xl border-t border-outline-variant/20 shadow-[0_-20px_40px_rgba(0,0,0,0.04)] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-4 md:hidden">
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-on-secondary-fixed-variant opacity-60 hover:opacity-100 transition-all font-label-sm text-label-sm tracking-[0.2em] uppercase" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="text-[9px]">HOME</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-on-surface border-b-2 border-primary pb-1 hover:opacity-100 transition-all font-label-sm text-label-sm tracking-[0.2em] uppercase scale-105" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="text-[9px]">ROADMAPS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-on-secondary-fixed-variant opacity-60 hover:opacity-100 transition-all font-label-sm text-label-sm tracking-[0.2em] uppercase" href="#">
+<span class="material-symbols-outlined mb-1">school</span>
+<span class="text-[9px]">MENTORS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container dark:text-on-secondary-fixed-variant opacity-60 hover:opacity-100 transition-all font-label-sm text-label-sm tracking-[0.2em] uppercase" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="text-[9px]">PROFILE</span>
+</a>
+</nav>
+</body></html>

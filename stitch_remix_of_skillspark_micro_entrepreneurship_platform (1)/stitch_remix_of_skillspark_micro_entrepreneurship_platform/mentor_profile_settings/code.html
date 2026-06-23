@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillSpark - Mentor Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#484645",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-bright": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#e6e1df",
+                        "primary-fixed": "#e5e2e1",
+                        "on-background": "#1a1c1c",
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "secondary": "#5e5e5e",
+                        "outline": "#747878",
+                        "on-tertiary-container": "#868381",
+                        "surface-container": "#eeeeee",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-low": "#f3f3f4",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c4c7c7",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dadada",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-secondary-container": "#646464",
+                        "surface-tint": "#5f5e5e",
+                        "tertiary": "#000000",
+                        "inverse-on-surface": "#f0f1f1",
+                        "secondary-container": "#e3e2e2",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary-container": "#858383",
+                        "tertiary-container": "#1d1b1a",
+                        "on-primary-fixed-variant": "#474646",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "surface": "#f9f9f9",
+                        "secondary-fixed": "#e3e2e2",
+                        "inverse-primary": "#c9c6c5",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "primary-container": "#1c1b1b",
+                        "primary": "#000000",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9f9",
+                        "on-surface-variant": "#444748"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-page": "64px",
+                        "stack-xl": "120px",
+                        "stack-sm": "12px",
+                        "stack-md": "48px"
+                    },
+                    "fontFamily": {
+                        "mono-label": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Playfair Display"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "mono-label": ["10px", { "lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "headline-xl": ["80px", { "lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #E5E5E5;
+        }
+        .hairline-bottom {
+            border-bottom: 1px solid #F1F1F1;
+        }
+        .icon-thin {
+            font-variation-settings: 'FILL' 0, 'wght' 100, 'GRAD' 0, 'opsz' 24;
+        }
+        .shadow-long {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+        }
+        .chip {
+            background-color: #F1F1F1;
+            border-radius: theme('borderRadius.DEFAULT');
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col md:flex-row relative pb-32 md:pb-0">
+<!-- Desktop Side Nav (Visible on md and up) -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 border-r border-outline-variant/20 shadow-2xl bg-surface/60 dark:bg-surface-container-low/60 backdrop-blur-2xl p-gutter z-50">
+<div class="mb-12">
+<h1 class="font-headline-lg text-headline-lg font-bold text-tertiary tracking-tighter">SkillSpark</h1>
+<p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-2">Mentor Dashboard</p>
+</div>
+<div class="flex-1 flex flex-col space-y-2">
+<a class="flex items-center space-x-4 p-3 text-secondary hover:bg-surface-variant/50 hover:scale-[1.02] transition-all rounded-DEFAULT group" href="#">
+<span class="material-symbols-outlined icon-thin group-hover:text-primary transition-colors">dashboard</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest group-hover:text-primary transition-colors">Home</span>
+</a>
+<a class="flex items-center space-x-4 p-3 text-secondary hover:bg-surface-variant/50 hover:scale-[1.02] transition-all rounded-DEFAULT group" href="#">
+<span class="material-symbols-outlined icon-thin group-hover:text-primary transition-colors">group</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest group-hover:text-primary transition-colors">Mentees</span>
+</a>
+<a class="flex items-center space-x-4 p-3 text-secondary hover:bg-surface-variant/50 hover:scale-[1.02] transition-all rounded-DEFAULT group" href="#">
+<span class="material-symbols-outlined icon-thin group-hover:text-primary transition-colors">library_books</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest group-hover:text-primary transition-colors">Resources</span>
+</a>
+<a class="flex items-center space-x-4 p-3 bg-primary text-on-primary rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined icon-thin" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Profile</span>
+</a>
+</div>
+<button class="w-full py-4 mt-auto bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest rounded-DEFAULT hover:scale-[1.02] transition-transform shadow-long">
+            New Session
+        </button>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-5 md:p-margin-page max-w-6xl mx-auto w-full">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row items-start md:items-center justify-between mb-stack-md gap-8">
+<div class="flex items-center gap-6">
+<div class="relative w-24 h-24 md:w-32 md:h-32 rounded-full border border-primary p-1">
+<img class="w-full h-full rounded-full object-cover filter grayscale" data-alt="A stark, high-contrast black and white portrait of a confident professional mentor in a minimalist studio setting. The lighting is crisp and editorial, casting a soft shadow on the bright white background. The subject is wearing modern, unstructured dark clothing, looking directly at the camera with a calm, authoritative expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU29KahBsTVRg9COjcn_BDBZL6mOZN3BNk5uirSJQgkhXvNymuOujneaW4BTjbBNZ1_6k7l6izjKuodqhRnut0GEo1xobDvN6LY4XSbKua_h-lLszrXYZwunXrXD-01haepgD-1x_xKfgl4U3xhHnccBJ81Uz93_GZ0rY7aT0RqUG36pMEsk8QXC38g9XJdTCFPdRRhJHXsexUaK3KjslFpOpnGwmBOu2kCGHxtKRkbbWminRvUTX92OPuTb7-hiGDjQs0zqNm36C4"/>
+<div class="absolute bottom-0 right-0 bg-primary text-on-primary rounded-full p-1 border-2 border-background flex items-center justify-center w-8 h-8 md:w-10 md:h-10">
+<span class="material-symbols-outlined text-[16px] md:text-[20px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-2 tracking-tighter">Eleanor Vance</h2>
+<div class="flex flex-wrap gap-2 mt-3">
+<span class="chip px-3 py-1 font-mono-label text-mono-label text-secondary uppercase">Product Strategy</span>
+<span class="chip px-3 py-1 font-mono-label text-mono-label text-secondary uppercase">UX Leadership</span>
+<span class="chip px-3 py-1 font-mono-label text-mono-label text-secondary uppercase">San Francisco</span>
+</div>
+</div>
+</div>
+<button class="hidden md:block px-8 py-3 bg-transparent border border-primary text-primary font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors">
+                Edit Profile
+            </button>
+</header>
+<!-- Stats Grid (Bento style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-stack-md">
+<div class="glass-panel p-6 rounded-DEFAULT flex flex-col justify-between h-32 md:h-40 group hover:shadow-long transition-shadow duration-300">
+<span class="font-mono-label text-mono-label text-secondary uppercase tracking-widest">Total Mentees</span>
+<div class="flex items-end justify-between">
+<span class="font-headline-lg text-headline-lg text-primary">142</span>
+<span class="material-symbols-outlined icon-thin text-secondary group-hover:text-primary transition-colors mb-2">trending_up</span>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-DEFAULT flex flex-col justify-between h-32 md:h-40 group hover:shadow-long transition-shadow duration-300">
+<span class="font-mono-label text-mono-label text-secondary uppercase tracking-widest">Average Rating</span>
+<div class="flex items-end justify-between">
+<span class="font-headline-lg text-headline-lg text-primary">4.9<span class="text-secondary text-2xl">/5</span></span>
+<span class="material-symbols-outlined icon-thin text-secondary group-hover:text-primary transition-colors mb-2">star</span>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-DEFAULT flex flex-col justify-between h-32 md:h-40 group hover:shadow-long transition-shadow duration-300">
+<span class="font-mono-label text-mono-label text-secondary uppercase tracking-widest">Resources Shared</span>
+<div class="flex items-end justify-between">
+<span class="font-headline-lg text-headline-lg text-primary">38</span>
+<span class="material-symbols-outlined icon-thin text-secondary group-hover:text-primary transition-colors mb-2">file_download</span>
+</div>
+</div>
+</section>
+<!-- Settings List -->
+<section class="mb-stack-md max-w-3xl">
+<h3 class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-6">Account Settings</h3>
+<div class="flex flex-col">
+<a class="group flex items-center justify-between py-6 hairline-bottom hover:bg-surface-variant/20 transition-colors px-2" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined icon-thin text-secondary group-hover:text-primary transition-colors">calendar_month</span>
+<span class="font-body-lg text-body-lg text-primary">Availability &amp; Schedule</span>
+</div>
+<span class="material-symbols-outlined icon-thin text-secondary group-hover:translate-x-1 transition-transform">chevron_right</span>
+</a>
+<a class="group flex items-center justify-between py-6 hairline-bottom hover:bg-surface-variant/20 transition-colors px-2" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined icon-thin text-secondary group-hover:text-primary transition-colors">notifications</span>
+<span class="font-body-lg text-body-lg text-primary">Notification Preferences</span>
+</div>
+<span class="material-symbols-outlined icon-thin text-secondary group-hover:translate-x-1 transition-transform">chevron_right</span>
+</a>
+<a class="group flex items-center justify-between py-6 hairline-bottom hover:bg-surface-variant/20 transition-colors px-2" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined icon-thin text-secondary group-hover:text-primary transition-colors">payments</span>
+<span class="font-body-lg text-body-lg text-primary">Payments &amp; Billing</span>
+</div>
+<span class="material-symbols-outlined icon-thin text-secondary group-hover:translate-x-1 transition-transform">chevron_right</span>
+</a>
+<a class="group flex items-center justify-between py-6 hairline-bottom hover:bg-surface-variant/20 transition-colors px-2" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined icon-thin text-secondary group-hover:text-primary transition-colors">manage_accounts</span>
+<span class="font-body-lg text-body-lg text-primary">Account Details</span>
+</div>
+<span class="material-symbols-outlined icon-thin text-secondary group-hover:translate-x-1 transition-transform">chevron_right</span>
+</a>
+</div>
+</section>
+<!-- Logout Action -->
+<section class="mt-stack-xl mb-32">
+<button class="font-mono-label text-mono-label text-secondary uppercase tracking-widest hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined icon-thin text-[14px]">logout</span>
+                Sign Out Securely
+            </button>
+</section>
+</main>
+<!-- Mobile Bottom Nav (Visible only on mobile) -->
+<nav class="md:hidden fixed bottom-6 left-4 right-4 glass-panel rounded-full shadow-long z-50 flex justify-around items-center py-4 px-6 border-none bg-surface/80">
+<a class="flex flex-col items-center gap-1 text-secondary opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined icon-thin">dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-secondary opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined icon-thin">group</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-secondary opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined icon-thin">library_books</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary relative" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<div class="absolute -bottom-2 w-1 h-1 bg-primary rounded-full"></div>
+</a>
+</nav>
+</body></html>

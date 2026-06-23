@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillSpark - Your Mentees</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed-variant": "#484645",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-bright": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#e6e1df",
+                        "primary-fixed": "#e5e2e1",
+                        "on-background": "#1a1c1c",
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "secondary": "#5e5e5e",
+                        "outline": "#747878",
+                        "on-tertiary-container": "#868381",
+                        "surface-container": "#eeeeee",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-low": "#f3f3f4",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c4c7c7",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dadada",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-secondary-container": "#646464",
+                        "surface-tint": "#5f5e5e",
+                        "tertiary": "#000000",
+                        "inverse-on-surface": "#f0f1f1",
+                        "secondary-container": "#e3e2e2",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary-container": "#858383",
+                        "tertiary-container": "#1d1b1a",
+                        "on-primary-fixed-variant": "#474646",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "surface": "#f9f9f9",
+                        "secondary-fixed": "#e3e2e2",
+                        "inverse-primary": "#c9c6c5",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "primary-container": "#1c1b1b",
+                        "primary": "#000000",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9f9",
+                        "on-surface-variant": "#444748"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "gutter": "24px",
+                        "margin-page": "64px",
+                        "stack-xl": "120px",
+                        "stack-sm": "12px",
+                        "stack-md": "48px"
+                    },
+                    fontFamily: {
+                        "mono-label": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Playfair Display"],
+                        "label-sm": ["Inter"]
+                    },
+                    fontSize: {
+                        "mono-label": ["10px", { "lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "headline-xl": ["80px", { "lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #f9f9f9;
+            color: #1a1c1c;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid #E5E5E5;
+        }
+        .hairline-border {
+            border: 1px solid #E5E5E5;
+        }
+        .hairline-bottom {
+            border-bottom: 1px solid #E5E5E5;
+        }
+        .focus-hairline:focus {
+            border-bottom: 2px solid #000;
+            outline: none;
+        }
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        /* Hide scrollbar for clean editorial look but allow scroll */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        * {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col md:flex-row font-body-md text-body-md selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar (Web) -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-surface/60 dark:bg-surface-container-low/60 backdrop-blur-2xl border-r border-outline-variant/20 shadow-2xl p-gutter z-50 glass-panel">
+<div class="mb-stack-md">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-tertiary">SkillSpark</h1>
+<p class="font-label-sm text-label-sm text-secondary mt-2">Mentor Dashboard</p>
+</div>
+<div class="flex flex-col space-y-4 flex-grow">
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-secondary hover:bg-surface-variant/50 hover:scale-[1.02] transition-transform font-label-sm text-label-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" style="font-weight: 300;">dashboard</span>
+<span>Home</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 bg-primary text-on-primary rounded-lg shadow-sm hover:scale-[1.02] transition-transform font-label-sm text-label-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" style="font-weight: 300;">group</span>
+<span>Mentees</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-secondary hover:bg-surface-variant/50 hover:scale-[1.02] transition-transform font-label-sm text-label-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" style="font-weight: 300;">library_books</span>
+<span>Resources</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-secondary hover:bg-surface-variant/50 hover:scale-[1.02] transition-transform font-label-sm text-label-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" style="font-weight: 300;">account_circle</span>
+<span>Profile</span>
+</a>
+</div>
+<div class="mt-auto pt-stack-md">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:scale-[1.02] transition-transform flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>New Session</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow md:ml-64 w-full p-6 md:p-margin-page pb-32 md:pb-margin-page">
+<!-- Header Section -->
+<header class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-stack-md">
+<div class="md:col-span-8 md:col-start-2 flex flex-col justify-end">
+<h2 class="font-headline-xl text-headline-xl md:text-[80px] text-tertiary leading-tight mb-8">Your Mentees</h2>
+<!-- Search & Filters -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mt-stack-sm">
+<!-- Search -->
+<div class="relative w-full md:w-1/2">
+<span class="material-symbols-outlined absolute left-0 bottom-3 text-secondary text-lg" style="font-weight: 300;">search</span>
+<input class="w-full bg-transparent border-0 hairline-bottom focus:ring-0 focus-hairline pl-8 pb-3 font-body-md text-body-md text-on-surface placeholder-secondary transition-all" placeholder="Search by name or project..." type="text"/>
+</div>
+<!-- Chips -->
+<div class="flex flex-wrap gap-3">
+<button class="bg-primary text-on-primary px-4 py-2 rounded font-mono-label text-mono-label uppercase tracking-widest hover:scale-[1.02] transition-transform shadow-sm">ALL</button>
+<button class="bg-surface-container text-on-surface px-4 py-2 rounded font-mono-label text-mono-label uppercase tracking-widest hover:bg-surface-variant transition-colors hairline-border">ACTIVE</button>
+<button class="bg-surface-container text-on-surface px-4 py-2 rounded font-mono-label text-mono-label uppercase tracking-widest hover:bg-surface-variant transition-colors hairline-border">NEEDS RESPONSE</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Asymmetric List Container -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-y-6 md:gap-y-12">
+<!-- Mentee Card 1 -->
+<article class="md:col-span-8 md:col-start-3 glass-panel p-6 md:p-8 rounded-lg relative overflow-hidden group hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] transition-shadow duration-500">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<!-- Identity -->
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-full overflow-hidden hairline-border shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A striking portrait of a young professional in a high-key, minimalist bright office setting. The lighting is soft and studio-quality, emphasizing a modern, editorial aesthetic with deep blacks and pristine whites. The mood is focused and ambitious, fitting a luxury technical environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9oeDpAA3ac55sFoFgSZvcU3ZgzDNiJFwN4GLuGP1F7VLk8axUe9a9YyuN1Zm_tRiGHsz-B5MWzqtbTTKWwTyljpcmBXEnU0QjIMDqMWXU7iizbxKRYWKXCavMVqDG9aIwewQsCfoAUw37-qXJ06AK7_JXOtr7Uoce0aHMD2_9V22VL6jrESKCnZq7w3emuKAJsbKKKCM7sHye1xu9BYbH8XtgI6U8Tc_BLu5TL1k44whaiJ_rcOCW0PK6Jc7rUB5D2ZFRXBQh6-_v"/>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-tertiary mb-1">Elena Rostova</h3>
+<span class="inline-block bg-[#F1F1F1] text-secondary font-mono-label text-mono-label px-2 py-1 rounded uppercase tracking-widest">FinTech Platform</span>
+</div>
+</div>
+<!-- Metrics & Status -->
+<div class="flex items-center gap-8 md:gap-12 w-full md:w-auto justify-between md:justify-end">
+<!-- Progress Ring -->
+<div class="flex flex-col items-center">
+<div class="relative w-12 h-12">
+<svg class="w-12 h-12" viewbox="0 0 100 100">
+<circle class="text-surface-variant stroke-current" cx="50" cy="50" fill="transparent" r="40" stroke-width="4"></circle>
+<circle class="text-primary stroke-current progress-ring__circle" cx="50" cy="50" fill="transparent" r="40" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-linecap="round" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center font-mono-label text-mono-label text-tertiary">75%</div>
+</div>
+<span class="font-mono-label text-mono-label text-secondary mt-2 opacity-60">ROADMAP</span>
+</div>
+<!-- Details -->
+<div class="flex flex-col items-end text-right">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-widest">ACTIVE</span>
+</div>
+<span class="font-mono-label text-mono-label text-secondary opacity-60">LAST SEEN: 2H AGO</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Mentee Card 2 - Offset to create tension -->
+<article class="md:col-span-8 md:col-start-4 glass-panel p-6 md:p-8 rounded-lg relative overflow-hidden group hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] transition-shadow duration-500">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<!-- Identity -->
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-full overflow-hidden hairline-border shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A cinematic portrait of an analytical entrepreneur in a stark, minimalist environment. Soft, directional studio light highlights their features against a pristine white background. The composition is highly curated and editorial, conveying sophistication and high-end tech focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC74yPb7FhW2GhxFRLulF1b4ZiOX_gQTzgNiUpAxHIp181c77imYYoSeJ-6x42a3gYsnj5VQhtKVB539vPWDyqPFqAXXy8leINp0kWxnEwFlp7haqfDnvY-gm4Ijsfyv5WG4uMNaNfnT_iXkVUVxIJBGjg4BqMgSEuSmWy_oXcGuLkbFBf-oqpxtgbDXmo_CvwfeGm3r_nJ2t3_x2RVtZlBw-Q4K1fwyQQgnDfKM_m2uUvKdEEsZRTphcAbuahGTLVJ3lQDeMUq7T9c"/>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-tertiary mb-1">Marcus Chen</h3>
+<span class="inline-block bg-[#F1F1F1] text-secondary font-mono-label text-mono-label px-2 py-1 rounded uppercase tracking-widest">Supply Chain AI</span>
+</div>
+</div>
+<!-- Metrics & Status -->
+<div class="flex items-center gap-8 md:gap-12 w-full md:w-auto justify-between md:justify-end">
+<!-- Progress Ring -->
+<div class="flex flex-col items-center">
+<div class="relative w-12 h-12">
+<svg class="w-12 h-12" viewbox="0 0 100 100">
+<circle class="text-surface-variant stroke-current" cx="50" cy="50" fill="transparent" r="40" stroke-width="4"></circle>
+<circle class="text-primary stroke-current progress-ring__circle" cx="50" cy="50" fill="transparent" r="40" stroke-dasharray="251.2" stroke-dashoffset="150.72" stroke-linecap="round" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center font-mono-label text-mono-label text-tertiary">40%</div>
+</div>
+<span class="font-mono-label text-mono-label text-secondary mt-2 opacity-60">ROADMAP</span>
+</div>
+<!-- Details -->
+<div class="flex flex-col items-end text-right">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full border border-primary relative flex items-center justify-center">
+<span class="w-1 h-1 bg-primary rounded-full animate-ping absolute"></span>
+<span class="w-1 h-1 bg-primary rounded-full relative"></span>
+</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-widest font-bold">NEEDS ATTENTION</span>
+</div>
+<span class="font-mono-label text-mono-label text-secondary opacity-60">DRAFT REVIEW PENDING</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Mentee Card 3 -->
+<article class="md:col-span-8 md:col-start-3 glass-panel p-6 md:p-8 rounded-lg relative overflow-hidden group hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] transition-shadow duration-500">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<!-- Identity -->
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-full overflow-hidden hairline-border shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A sharp, modern portrait of a creative founder. The image uses a high-key light mode aesthetic with deep black accents and pristine white negative space. The style mimics an avant-garde architectural journal, clean, cold, and highly deliberate in composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrMylxVEm2obj6kF_mxG_xM5d_pyyyWNs-OxwjtMHGVpy7vShx-iq1sePfCxFN4QHBCSDjYQXLJLFHfZnEntlq_ieaqRVvV6OPIoMH7SN65iEabGqq7Z65D6cZAqKuvf-5WCUDfhaVmjvZmjKLXfvBIvAvM6dObC1e9wSrQrH7ibmcapi1VXxc8Uy8NIO6eOFn3qoKSbiVlKX-3FJxZ4JphoYUUl4bkI73e0U6_4flwHZo-gGMZ72bR0LeNFtb9hWJ5SFpTeX0jdaw"/>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-tertiary mb-1">Sarah Jenkins</h3>
+<span class="inline-block bg-[#F1F1F1] text-secondary font-mono-label text-mono-label px-2 py-1 rounded uppercase tracking-widest">EdTech Marketplace</span>
+</div>
+</div>
+<!-- Metrics & Status -->
+<div class="flex items-center gap-8 md:gap-12 w-full md:w-auto justify-between md:justify-end">
+<!-- Progress Ring -->
+<div class="flex flex-col items-center">
+<div class="relative w-12 h-12">
+<svg class="w-12 h-12" viewbox="0 0 100 100">
+<circle class="text-surface-variant stroke-current" cx="50" cy="50" fill="transparent" r="40" stroke-width="4"></circle>
+<circle class="text-primary stroke-current progress-ring__circle" cx="50" cy="50" fill="transparent" r="40" stroke-dasharray="251.2" stroke-dashoffset="25.12" stroke-linecap="round" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center font-mono-label text-mono-label text-tertiary">90%</div>
+</div>
+<span class="font-mono-label text-mono-label text-secondary mt-2 opacity-60">ROADMAP</span>
+</div>
+<!-- Details -->
+<div class="flex flex-col items-end text-right">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-widest">ACTIVE</span>
+</div>
+<span class="font-mono-label text-mono-label text-secondary opacity-60">SESSION TOMORROW</span>
+</div>
+</div>
+</div>
+</article>
+</section>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full glass-panel shadow-[0_-10px_40px_rgba(0,0,0,0.05)] z-50 p-4 pb-8 flex justify-around items-center">
+<a class="flex flex-col items-center space-y-1 text-secondary opacity-50 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" style="font-weight: 300;">dashboard</span>
+<span class="font-mono-label text-mono-label uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center space-y-1 text-tertiary" href="#">
+<span class="material-symbols-outlined" style="font-weight: 600;">group</span>
+<span class="font-mono-label text-mono-label uppercase font-bold">Mentees</span>
+<div class="w-1 h-1 bg-primary rounded-full mt-1"></div>
+</a>
+<a class="flex flex-col items-center space-y-1 text-secondary opacity-50 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" style="font-weight: 300;">library_books</span>
+<span class="font-mono-label text-mono-label uppercase">Resources</span>
+</a>
+<a class="flex flex-col items-center space-y-1 text-secondary opacity-50 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" style="font-weight: 300;">account_circle</span>
+<span class="font-mono-label text-mono-label uppercase">Profile</span>
+</a>
+</nav>
+</body></html>

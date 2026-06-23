@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillSpark - Interests</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed": "#1c1b1b",
+                      "on-primary-fixed-variant": "#474646",
+                      "tertiary-fixed": "#e6e1df",
+                      "surface-dim": "#dadada",
+                      "surface-tint": "#5f5e5e",
+                      "background": "#f9f9f9",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-fixed": "#1d1b1a",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-container": "#868381",
+                      "on-secondary-fixed-variant": "#464747",
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#f3f3f4",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "surface-container-high": "#e8e8e8",
+                      "secondary": "#5e5e5e",
+                      "surface-variant": "#e2e2e2",
+                      "on-tertiary-fixed-variant": "#484645",
+                      "outline-variant": "#c4c7c7",
+                      "primary-fixed-dim": "#c9c6c5",
+                      "primary-fixed": "#e5e2e1",
+                      "tertiary-container": "#1d1b1a",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#cac6c3",
+                      "error-container": "#ffdad6",
+                      "on-surface": "#1a1c1c",
+                      "outline": "#747878",
+                      "surface": "#f9f9f9",
+                      "inverse-surface": "#2f3131",
+                      "secondary-container": "#e3e2e2",
+                      "on-error": "#ffffff",
+                      "on-background": "#1a1c1c",
+                      "inverse-primary": "#c9c6c5",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-on-surface": "#f0f1f1",
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "primary": "#000000",
+                      "on-primary-container": "#858383",
+                      "primary-container": "#1c1b1b",
+                      "surface-bright": "#f9f9f9",
+                      "on-secondary-container": "#646464",
+                      "tertiary": "#000000",
+                      "secondary-fixed": "#e3e2e2",
+                      "surface-container-highest": "#e2e2e2",
+                      "surface-container": "#eeeeee",
+                      "on-surface-variant": "#444748"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-xl": "120px",
+                      "stack-sm": "12px",
+                      "gutter": "24px",
+                      "margin-page": "64px",
+                      "stack-md": "48px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": [
+                              "Playfair Display"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "mono-label": [
+                              "Inter"
+                      ],
+                      "headline-xl": [
+                              "Playfair Display"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "52px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "11px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.12em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "mono-label": [
+                              "10px",
+                              {
+                                      "lineHeight": "12px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-xl": [
+                              "80px",
+                              {
+                                      "lineHeight": "88px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #E5E5E5;
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            transform: translateY(-2px);
+        }
+        .glass-card.selected {
+            background: #0A0A0A;
+            color: #FFFFFF;
+            border-color: #0A0A0A;
+        }
+        .glass-card.selected .icon-span {
+            color: #FFFFFF;
+        }
+        .slider-thumb::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #000;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .slider-thumb::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background: #000;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen text-on-surface flex flex-col font-body-md selection:bg-primary/10">
+<!-- TopNavBar (Suppressed for transactional flow, keeping brand anchor minimal) -->
+<header class="w-full flex justify-between items-center px-margin-page py-6 z-50 absolute top-0">
+<div class="font-headline-lg font-bold tracking-tighter text-primary">SKILLSPARK</div>
+<div class="font-mono-label text-mono-label tracking-widest text-on-surface-variant">STEP 2 / 3</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-margin-page pt-32 pb-margin-page">
+<div class="w-full max-w-4xl flex flex-col gap-stack-xl">
+<!-- Headline Section -->
+<div class="flex flex-col gap-stack-sm items-start max-w-2xl">
+<span class="font-mono-label text-mono-label tracking-widest text-on-surface-variant">YOUR PREFERENCES</span>
+<h1 class="font-headline-xl text-headline-xl text-primary">What matters most to you?</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mt-4">Select the key attributes that define your ideal project. This helps us tailor the lookbook to your specifications.</p>
+</div>
+<!-- Bento Grid - Interests -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Card 1 -->
+<button class="glass-card flex flex-col items-start p-8 rounded-xl gap-4 text-left group" onclick="this.classList.toggle('selected')">
+<span class="material-symbols-outlined icon-span text-primary/60 group-hover:text-primary transition-colors text-3xl" style="font-variation-settings: 'wght' 200, 'FILL' 0;">attach_money</span>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-current mb-2">Low investment</h3>
+<p class="font-body-md text-body-md opacity-70">Minimal upfront capital required. Focus on sweat equity and lean operations.</p>
+</div>
+</button>
+<!-- Card 2 -->
+<button class="glass-card flex flex-col items-start p-8 rounded-xl gap-4 text-left group" onclick="this.classList.toggle('selected')">
+<span class="material-symbols-outlined icon-span text-primary/60 group-hover:text-primary transition-colors text-3xl" style="font-variation-settings: 'wght' 200, 'FILL' 0;">home_work</span>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-current mb-2">Work from home</h3>
+<p class="font-body-md text-body-md opacity-70">Fully remote capable. Build and manage entirely from your personal space.</p>
+</div>
+</button>
+<!-- Card 3 -->
+<button class="glass-card flex flex-col items-start p-8 rounded-xl gap-4 text-left group" onclick="this.classList.toggle('selected')">
+<span class="material-symbols-outlined icon-span text-primary/60 group-hover:text-primary transition-colors text-3xl" style="font-variation-settings: 'wght' 200, 'FILL' 0;">bolt</span>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-current mb-2">Quick to start</h3>
+<p class="font-body-md text-body-md opacity-70">Rapid deployment models. Go from concept to execution in days, not months.</p>
+</div>
+</button>
+<!-- Card 4 -->
+<button class="glass-card flex flex-col items-start p-8 rounded-xl gap-4 text-left group" onclick="this.classList.toggle('selected')">
+<span class="material-symbols-outlined icon-span text-primary/60 group-hover:text-primary transition-colors text-3xl" style="font-variation-settings: 'wght' 200, 'FILL' 0;">trending_up</span>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-current mb-2">Long-term growth</h3>
+<p class="font-body-md text-body-md opacity-70">Sustainable scaling strategies. Built for durability and compounding returns.</p>
+</div>
+</button>
+</div>
+<!-- Budget Slider Section -->
+<div class="flex flex-col gap-6 pt-stack-md border-t border-outline-variant/30">
+<div class="flex justify-between items-center">
+<h3 class="font-mono-label text-mono-label tracking-widest text-on-surface-variant">INITIAL BUDGET (OPTIONAL)</h3>
+<span class="font-mono-label text-mono-label tracking-widest text-primary bg-surface-container-high px-3 py-1 rounded" id="budgetValue">5,000</span>
+</div>
+<div class="relative w-full h-12 flex items-center">
+<input class="slider-thumb w-full h-px bg-outline-variant/50 appearance-none outline-none z-10 relative" id="budgetSlider" max="20000" min="0" step="500" type="range" value="5000"/>
+<!-- Progress track fill visualization (simplified for vanilla JS) -->
+<div class="absolute left-0 h-px bg-primary z-0 pointer-events-none" id="budgetProgress" style="width: 25%;"></div>
+</div>
+<div class="flex justify-between font-mono-label text-mono-label tracking-widest text-outline">
+<span>MINIMAL</span>
+<span>SUBSTANTIAL</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex justify-between items-center pt-stack-md">
+<a class="font-label-sm text-label-sm tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'wght' 300;">arrow_back</span>
+                    BACK
+                </a>
+<button class="bg-[#0A0A0A] text-white font-label-sm text-label-sm tracking-[0.2em] px-8 py-4 hover:scale-[1.02] transition-transform duration-300 flex items-center gap-3">
+                    CONTINUE
+                    <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'wght' 300;">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<script>
+        // Budget Slider Logic
+        const slider = document.getElementById('budgetSlider');
+        const output = document.getElementById('budgetValue');
+        const progress = document.getElementById('budgetProgress');
+
+        slider.oninput = function() {
+            // Format number with commas
+            output.innerHTML = Number(this.value).toLocaleString();
+            
+            // Calculate progress width
+            const percentage = ((this.value - this.min) / (this.max - this.min)) * 100;
+            progress.style.width = percentage + '%';
+        }
+    </script>
+</body></html>

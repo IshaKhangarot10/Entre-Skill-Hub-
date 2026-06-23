@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Platform Settings</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#e2e2e2",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-tertiary-fixed": "#1d1b1a",
+                    "on-surface-variant": "#444748",
+                    "on-tertiary-fixed-variant": "#484645",
+                    "surface-container-low": "#f3f3f4",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#e3e2e2",
+                    "surface": "#f9f9f9",
+                    "outline-variant": "#c4c7c7",
+                    "on-secondary-container": "#646464",
+                    "on-secondary-fixed-variant": "#464747",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#474646",
+                    "background": "#f9f9f9",
+                    "surface-tint": "#5f5e5e",
+                    "surface-dim": "#dadada",
+                    "inverse-primary": "#c9c6c5",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#1c1b1b",
+                    "inverse-surface": "#2f3131",
+                    "surface-bright": "#f9f9f9",
+                    "secondary-fixed-dim": "#c7c6c6",
+                    "primary": "#000000",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "on-primary-container": "#858383",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#eeeeee",
+                    "primary-fixed": "#e5e2e1",
+                    "tertiary-fixed": "#e6e1df",
+                    "secondary": "#5e5e5e",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "outline": "#747878",
+                    "on-surface": "#1a1c1c",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#000000",
+                    "tertiary-container": "#1d1b1a",
+                    "primary-container": "#1c1b1b",
+                    "on-tertiary-container": "#868381",
+                    "tertiary-fixed-dim": "#cac6c3",
+                    "surface-container-high": "#e8e8e8",
+                    "secondary-container": "#e3e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-page": "64px",
+                    "stack-md": "48px",
+                    "stack-sm": "12px",
+                    "gutter": "24px",
+                    "stack-xl": "120px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "label-sm": ["Inter"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "mono-label": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-xl": ["80px", { "lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                    "headline-lg": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                    "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "600" }],
+                    "headline-lg-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                    "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                    "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                    "mono-label": ["10px", { "lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "500" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { background-color: #f9f9f9; }
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased overflow-x-hidden selection:bg-primary selection:text-on-primary">
+<!-- Shared Component: SideNavBar -->
+<nav class="w-64 h-screen fixed left-0 top-0 bg-surface/80 backdrop-blur-xl border-r border-outline-variant/30 flex flex-col py-margin-page gap-stack-md z-50 hidden md:flex">
+<!-- Header -->
+<div class="px-6 flex flex-col gap-2">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant/30 mb-4 bg-surface-container">
+<img alt="Admin Profile Avatar" class="w-full h-full object-cover" data-alt="A stark, minimalist abstract geometry avatar portraying an administrative identity, featuring high-contrast black and white sharp lines in a studio lighting setup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbXdLiwI2kOMOGyN_JFOD_mo5a2M0Ws8q7YjDVsbtWQ9xs14F9Ah8abywDAJQkx3Hr9BfIzSpL2g-VIytA7Lttm6YpJIMBWtOIaPuYbNkCfavC2D5401RFQswaHjCebT7FijcNbOxD0YiS2ghgL90cg06OAZGkC0KZZzwdlANgrenY_FR5OxjUtv0UqBnALwqu2gZZy-Lqm06QiVPQYk0IzmRQX6-8q8eQH1o9XL9ZSR-YWuv1s90b_-2EBVlYjXn54yUWgX73lWps"/>
+</div>
+<h2 class="font-headline-lg text-headline-lg-mobile font-bold tracking-tighter text-primary">OVERSIGHT</h2>
+<p class="font-mono-label text-mono-label text-secondary uppercase">V.2.0.4 - PREMIUM</p>
+</div>
+<!-- Navigation Tabs -->
+<div class="flex-1 flex flex-col gap-2 mt-stack-md">
+<!-- Queue -->
+<a class="px-6 py-4 flex items-center gap-4 text-secondary transition-colors duration-300 hover:text-primary hover:bg-surface-container-low/50 transition-all ease-in-out hover:pl-8" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 200;">pending_actions</span>
+<span class="font-label-sm text-label-sm uppercase">Queue</span>
+</a>
+<!-- Users & Mentors -->
+<a class="px-6 py-4 flex items-center gap-4 text-secondary transition-colors duration-300 hover:text-primary hover:bg-surface-container-low/50 transition-all ease-in-out hover:pl-8" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 200;">group</span>
+<span class="font-label-sm text-label-sm uppercase">Users &amp; Mentors</span>
+</a>
+<!-- Content Library -->
+<a class="px-6 py-4 flex items-center gap-4 text-secondary transition-colors duration-300 hover:text-primary hover:bg-surface-container-low/50 transition-all ease-in-out hover:pl-8" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 200;">library_books</span>
+<span class="font-label-sm text-label-sm uppercase">Content Library</span>
+</a>
+<!-- Analytics -->
+<a class="px-6 py-4 flex items-center gap-4 text-secondary transition-colors duration-300 hover:text-primary hover:bg-surface-container-low/50 transition-all ease-in-out hover:pl-8" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 200;">analytics</span>
+<span class="font-label-sm text-label-sm uppercase">Analytics</span>
+</a>
+<!-- Settings (ACTIVE) -->
+<a class="px-6 py-4 flex items-center gap-4 text-primary font-bold border-r-2 border-primary transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1, 'wght' 300;">settings</span>
+<span class="font-label-sm text-label-sm uppercase">Settings</span>
+</a>
+</div>
+<!-- Footer Actions -->
+<div class="px-6 flex flex-col gap-2 mt-auto">
+<button class="mb-6 w-full border border-primary text-primary font-label-sm text-label-sm py-3 uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors">
+                SYSTEM LOGS
+            </button>
+<a class="flex items-center gap-4 text-secondary hover:text-primary transition-colors py-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 200;">help_outline</span>
+<span class="font-label-sm text-label-sm uppercase">Support</span>
+</a>
+<a class="flex items-center gap-4 text-secondary hover:text-primary transition-colors py-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 200;">logout</span>
+<span class="font-label-sm text-label-sm uppercase">Sign Out</span>
+</a>
+</div>
+</nav>
+<!-- Shared Component: TopAppBar -->
+<header class="fixed top-0 right-0 left-0 md:left-64 z-40 bg-surface/60 backdrop-blur-lg border-b border-outline-variant/30 flex items-center justify-between px-gutter h-16">
+<div class="font-mono-label text-mono-label uppercase tracking-[0.2em] text-primary">
+            MENTORSHIP OVERSIGHT
+        </div>
+<div class="flex items-center gap-6">
+<!-- Search Icon (Right side as per specification) -->
+<button class="text-secondary hover:opacity-70 transition-opacity scale-102 active:scale-98 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 200;">search</span>
+</button>
+<!-- Trailing Icons -->
+<button class="text-secondary hover:opacity-70 transition-opacity scale-102 active:scale-98 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 200;">notifications</span>
+</button>
+<button class="text-secondary hover:opacity-70 transition-opacity scale-102 active:scale-98 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 200;">history</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30 bg-surface-container ml-4 hidden md:block">
+<img alt="Administrator Profile" class="w-full h-full object-cover" data-alt="A stark, minimalist abstract geometry avatar portraying an administrative identity, featuring high-contrast black and white sharp lines in a studio lighting setup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJbv-7wiDPJVE1EHQuwIg97D3LcbW0yTYHcUBU1ieq6c3ektxf7HlrPUwIb1lPkVSh3U8yacSGBUgHKq4F9V6fL1Crvo7PJmYNYPez1t6lm7AdS88yBOBmJfkjtqeY7pkxTU9O7UNDJPKuf2Vr_jFPJiFVJZeGlYPkOCMkZ7NKUXnDDQiwsTK_KJN-ZYcfsCq7Z-B5wRlL74IkgCMs2diIr9mmC3dZD0gdtbb8aSgHn8Coc5zQKVM6zD-PUuk08t9SIZCScE8gJN7Z"/>
+</div>
+</div>
+</header>
+<!-- Main Editorial Canvas -->
+<main class="md:ml-64 pt-32 pb-48 min-h-screen relative">
+<div class="px-gutter md:px-margin-page grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Asymmetric Offset Content Area (cols 3 to 10 on desktop) -->
+<div class="md:col-start-3 md:col-span-8 flex flex-col">
+<h1 class="font-headline-lg-mobile md:font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary mb-stack-xl">Settings</h1>
+<div class="flex flex-col w-full glass-panel border border-[#E5E5E5] p-12 shadow-[0_20px_40px_rgba(0,0,0,0.02)]">
+<!-- Setting Section: Platform Configuration -->
+<div class="group flex items-center justify-between py-10 border-b border-[#E5E5E5] cursor-pointer transition-colors hover:bg-surface-container-lowest/50">
+<div class="flex flex-col gap-2 pr-8">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.12em]">Platform Configuration</span>
+<span class="font-body-md text-body-md text-secondary max-w-lg">Manage core environment variables, operational parameters, and deployment targets for the SkillSpark ecosystem.</span>
+</div>
+<span class="material-symbols-outlined text-outline font-[200] group-hover:text-primary transition-colors transform group-hover:translate-x-1">chevron_right</span>
+</div>
+<!-- Setting Section: Notification Rules -->
+<div class="group flex items-center justify-between py-10 border-b border-[#E5E5E5] cursor-pointer transition-colors hover:bg-surface-container-lowest/50">
+<div class="flex flex-col gap-2 pr-8">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.12em]">Notification Rules</span>
+<span class="font-body-md text-body-md text-secondary max-w-lg">Configure globally triggered alerts, digest frequencies, and automated dispatch protocols across all user channels.</span>
+</div>
+<span class="material-symbols-outlined text-outline font-[200] group-hover:text-primary transition-colors transform group-hover:translate-x-1">chevron_right</span>
+</div>
+<!-- Setting Section: Admin Team Management -->
+<div class="group flex items-center justify-between py-10 border-b border-[#E5E5E5] cursor-pointer transition-colors hover:bg-surface-container-lowest/50">
+<div class="flex flex-col gap-2 pr-8">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.12em]">Admin Team Management</span>
+<span class="font-body-md text-body-md text-secondary max-w-lg">Dictate role-based access controls (RBAC), auditing privileges, and onboarding protocols for internal stakeholders.</span>
+</div>
+<span class="material-symbols-outlined text-outline font-[200] group-hover:text-primary transition-colors transform group-hover:translate-x-1">chevron_right</span>
+</div>
+<!-- Setting Section: Content Moderation Rules -->
+<div class="group flex items-center justify-between py-10 border-b border-[#E5E5E5] cursor-pointer transition-colors hover:bg-surface-container-lowest/50">
+<div class="flex flex-col gap-2 pr-8">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.12em]">Content Moderation Rules</span>
+<span class="font-body-md text-body-md text-secondary max-w-lg">Define strict heuristic filters, semantic flagging thresholds, and manual oversight queues for user-generated material.</span>
+</div>
+<span class="material-symbols-outlined text-outline font-[200] group-hover:text-primary transition-colors transform group-hover:translate-x-1">chevron_right</span>
+</div>
+<!-- Setting Section: Data & Privacy -->
+<div class="group flex items-center justify-between py-10 cursor-pointer transition-colors hover:bg-surface-container-lowest/50">
+<div class="flex flex-col gap-2 pr-8">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.12em]">Data &amp; Privacy</span>
+<span class="font-body-md text-body-md text-secondary max-w-lg">Execute compliance mandates, govern data retention lifecycles, and enforce structural anonymity frameworks.</span>
+</div>
+<span class="material-symbols-outlined text-outline font-[200] group-hover:text-primary transition-colors transform group-hover:translate-x-1">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom CTA -->
+<div class="fixed bottom-0 right-0 w-full md:w-[calc(100%-16rem)] p-gutter md:p-margin-page flex justify-end z-30 pointer-events-none">
+<button class="pointer-events-auto bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-[0.12em] px-12 py-5 shadow-[0_20px_40px_rgba(0,0,0,0.15)] hover:scale-[1.02] active:scale-95 transition-transform duration-300 flex items-center gap-3">
+<span>Save Changes</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">arrow_forward</span>
+</button>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Application Status - SKILLSPARK</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e2e2e2",
+                        "surface": "#f9f9f9",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-container-low": "#f3f3f4",
+                        "on-secondary-fixed-variant": "#464747",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-bright": "#f9f9f9",
+                        "secondary-fixed": "#e3e2e2",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#e5e2e1",
+                        "on-background": "#1a1c1c",
+                        "tertiary": "#000000",
+                        "inverse-primary": "#c9c6c5",
+                        "outline-variant": "#c4c7c7",
+                        "tertiary-fixed": "#e6e1df",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#5f5e5e",
+                        "on-surface-variant": "#444748",
+                        "on-primary-fixed": "#1c1b1b",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#868381",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#747878",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "primary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-container": "#eeeeee",
+                        "inverse-surface": "#2f3131",
+                        "secondary": "#5e5e5e",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#858383",
+                        "background": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-primary-fixed-variant": "#474646",
+                        "secondary-container": "#e3e2e2",
+                        "tertiary-container": "#1d1b1a",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "on-secondary-container": "#646464",
+                        "surface-dim": "#dadada",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "48px",
+                        "stack-xl": "120px",
+                        "stack-sm": "12px",
+                        "gutter": "24px",
+                        "margin-page": "64px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-xl": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "mono-label": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-xl": ["80px", {"lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "mono-label": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Glassmorphism utilities */
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #E5E5E5;
+        }
+        
+        .long-shadow {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+        }
+
+        /* Circular progress animation */
+        @keyframes progress {
+            0% { stroke-dasharray: 0 100; }
+            100% { stroke-dasharray: 60 100; } /* 60% completion */
+        }
+        .circular-chart {
+            display: block;
+            margin: 0 auto;
+            max-width: 80%;
+            max-height: 250px;
+        }
+        .circle-bg {
+            fill: none;
+            stroke: #F1F1F1;
+            stroke-width: 1;
+        }
+        .circle {
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            animation: progress 2s ease-out forwards;
+        }
+        
+        /* Thin hairline elements */
+        .hairline-border {
+            border: 1px solid #E5E5E5;
+        }
+        
+        .hairline-t {
+            border-top: 1px solid #F1F1F1;
+        }
+        
+        /* Icon styles */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface min-h-screen flex flex-col font-body-md antialiased selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation (Suppressed for this transactional/focus state as per guidelines, but keeping a minimal brand anchor if needed. Opting for full suppression to prioritize the centered status card as requested). -->
+<header class="fixed top-0 w-full flex justify-between items-center px-margin-page py-6 z-50 pointer-events-none">
+<div class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tighter text-primary">SKILLSPARK</div>
+<!-- Hidden nav items -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex items-center justify-center p-gutter relative overflow-hidden">
+<!-- Subtle background atmospheric element (optional, keeping minimal as per stark white request) -->
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(circle at 50% -20%, #f3f3f4 0%, transparent 50%);"></div>
+<!-- Centered Frosted Glass Status Card -->
+<div class="glass-panel long-shadow rounded-xl w-full max-w-2xl p-stack-md flex flex-col items-center text-center relative z-10 transition-transform duration-500 hover:scale-[1.01]">
+<!-- Status Ring Indicator -->
+<div class="relative w-32 h-32 mb-stack-sm flex items-center justify-center">
+<svg class="circular-chart w-full h-full absolute inset-0 transform -rotate-90" viewbox="0 0 36 36">
+<path class="circle-bg" d="M18 2.0845
+                        a 15.9155 15.9155 0 0 1 0 31.831
+                        a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+<path class="circle stroke-primary" d="M18 2.0845
+                        a 15.9155 15.9155 0 0 1 0 31.831
+                        a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="60, 100"></path>
+</svg>
+<!-- Inner Icon -->
+<span class="material-symbols-outlined text-3xl text-primary animate-pulse" style="font-variation-settings: 'wght' 100;">pending</span>
+</div>
+<!-- Headline -->
+<h1 class="font-headline-lg text-headline-lg md:font-headline-xl md:text-headline-xl text-primary mb-gutter">Application Under Review</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mb-stack-md">
+                Your portfolio is currently being evaluated by our editorial board. We will notify you once a decision has been reached.
+            </p>
+<!-- Timeline Mini-Tracker -->
+<div class="w-full max-w-md flex items-center justify-between relative mb-stack-md">
+<!-- Connecting Line -->
+<div class="absolute top-1/2 left-4 right-4 h-[1px] bg-[#E5E5E5] -z-10 transform -translate-y-1/2"></div>
+<div class="absolute top-1/2 left-4 w-1/2 h-[1px] bg-primary -z-10 transform -translate-y-1/2 transition-all duration-1000 ease-in-out"></div>
+<!-- Node 1: Submitted -->
+<div class="flex flex-col items-center gap-2 bg-surface-container-lowest px-2">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<span class="font-mono-label text-mono-label tracking-widest text-primary uppercase">Submitted</span>
+</div>
+<!-- Node 2: Under Review (Current) -->
+<div class="flex flex-col items-center gap-2 bg-surface-container-lowest px-2">
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-surface-container-lowest flex items-center justify-center relative">
+<div class="w-2 h-2 rounded-full bg-primary animate-ping absolute"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+</div>
+<span class="font-mono-label text-mono-label tracking-widest text-primary font-bold uppercase">Review</span>
+</div>
+<!-- Node 3: Approved -->
+<div class="flex flex-col items-center gap-2 bg-surface-container-lowest px-2">
+<div class="w-8 h-8 rounded-full border border-[#E5E5E5] bg-surface-container-lowest flex items-center justify-center">
+</div>
+<span class="font-mono-label text-mono-label tracking-widest text-outline-variant uppercase">Approved</span>
+</div>
+</div>
+<!-- Secondary CTA -->
+<a class="inline-flex items-center justify-center px-8 py-4 bg-transparent border border-primary text-primary font-label-sm text-label-sm uppercase tracking-[0.2em] hover:bg-surface-container-lowest transition-colors duration-300 relative overflow-hidden group" href="#">
+<span class="relative z-10 flex items-center gap-2">
+                    Browse Mentor Resources
+                    <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform duration-300">arrow_forward</span>
+</span>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-outline-variant/20 bg-background flex flex-col md:flex-row justify-between items-center px-margin-page py-stack-sm mt-auto z-40 relative">
+<div class="font-headline-lg text-headline-lg text-primary text-xl md:text-2xl mb-4 md:mb-0">SKILLSPARK</div>
+<div class="flex gap-gutter font-mono-label text-mono-label tracking-widest text-on-surface-variant">
+<a class="hover:opacity-50 transition-opacity duration-300" href="#">PRIVACY</a>
+<a class="hover:opacity-50 transition-opacity duration-300" href="#">TERMS</a>
+<a class="hover:opacity-50 transition-opacity duration-300" href="#">CONTACT</a>
+</div>
+<div class="font-mono-label text-mono-label tracking-widest text-on-surface-variant mt-4 md:mt-0">
+            ©2024 SKILLSPARK. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+</body></html>
