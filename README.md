@@ -1,6 +1,6 @@
 # EntreSkill Hub 
 
-**EntreSkill Hub** (formerly SkillSpark) is a comprehensive, full-stack web platform designed to bridge the gap between existing skills and sustainable micro-businesses. It provides a rigorous, minimalist framework for transforming technical and creative expertise into a scalable enterprise through personalized recommendations, actionable roadmaps, and dedicated mentorship.
+**EntreSkill Hub** is a comprehensive, full-stack web platform designed to bridge the gap between existing skills and sustainable micro-businesses. It provides a rigorous, minimalist framework for transforming technical and creative expertise into a scalable enterprise through personalized recommendations, actionable roadmaps, and dedicated mentorship.
 
 ---
 
