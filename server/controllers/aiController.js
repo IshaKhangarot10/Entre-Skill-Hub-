@@ -12,7 +12,7 @@ exports.recommendCourses = async (req, res, next) => {
     // For now, we'll use a generic prompt if specific interests aren't provided.
     const userContext = req.user ? `for a professional building an enterprise` : `for an aspiring entrepreneur`;
     
-    const prompt = `Recommend 4 highly actionable, premium courses ${userContext}. Return them in the exact JSON format specified.`;
+    const prompt = `Recommend 4 highly actionable, premium courses ${userContext}. Return them in the exact JSON format specified, including a direct website URL or search link for each course.`;
 
     const response = await ai.models.generateContent({
       model: 'gemini-2.0-flash',
@@ -39,9 +39,13 @@ exports.recommendCourses = async (req, res, next) => {
               reason: {
                 type: Type.STRING,
                 description: 'A brief, 1-sentence reason why this course is highly recommended for this user'
+              },
+              url: {
+                type: Type.STRING,
+                description: 'A direct website URL or search link for the course'
               }
             },
-            required: ['title', 'platform', 'difficulty', 'reason']
+            required: ['title', 'platform', 'difficulty', 'reason', 'url']
           }
         }
       }
@@ -59,25 +63,29 @@ exports.recommendCourses = async (req, res, next) => {
         title: "Zero to One: Startup Fundamentals",
         platform: "Coursera",
         difficulty: "Beginner",
-        reason: "Provides the foundational mental models needed to build a scalable enterprise from scratch."
+        reason: "Provides the foundational mental models needed to build a scalable enterprise from scratch.",
+        url: "https://www.coursera.org/learn/startup"
       },
       {
         title: "Y Combinator's Startup School",
         platform: "YouTube",
         difficulty: "Intermediate",
-        reason: "Offers actionable, real-world advice from founders who have successfully scaled billion-dollar companies."
+        reason: "Offers actionable, real-world advice from founders who have successfully scaled billion-dollar companies.",
+        url: "https://www.startupschool.org/"
       },
       {
         title: "Advanced Product Strategy",
         platform: "Reforge",
         difficulty: "Advanced",
-        reason: "Deep dive into creating growth loops and finding true product-market fit for your specific idea."
+        reason: "Deep dive into creating growth loops and finding true product-market fit for your specific idea.",
+        url: "https://www.reforge.com/advanced-product-management"
       },
       {
         title: "Financial Modeling for Entrepreneurs",
         platform: "Udemy",
         difficulty: "Intermediate",
-        reason: "Crucial for understanding your burn rate, runway, and unit economics before raising capital."
+        reason: "Crucial for understanding your burn rate, runway, and unit economics before raising capital.",
+        url: "https://www.udemy.com/course/financial-modeling-for-startups-small-businesses/"
       }
     ];
     

@@ -51,10 +51,16 @@ export default function CourseRecommendations() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {recommendations.map((course, idx) => (
-          <div key={idx} className="glass-panel p-6 flex flex-col justify-between hover:shadow-studio transition-shadow gap-4">
+          <a 
+            key={idx} 
+            href={course.url || '#'} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="glass-panel p-6 flex flex-col justify-between hover:shadow-studio transition-shadow gap-4 block cursor-pointer group"
+          >
             <div>
               <div className="flex justify-between items-start gap-4">
-                <h3 className="font-['Inter'] text-[16px] font-semibold text-black line-clamp-2">{course.title}</h3>
+                <h3 className="font-['Inter'] text-[16px] font-semibold text-black line-clamp-2 group-hover:underline decoration-1 underline-offset-2">{course.title}</h3>
                 <span className={`px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.05em] shrink-0 border ${
                   course.difficulty === 'Beginner' ? 'border-[#28a745] text-[#28a745]' :
                   course.difficulty === 'Intermediate' ? 'border-[#fd7e14] text-[#fd7e14]' :
@@ -66,11 +72,16 @@ export default function CourseRecommendations() {
               <p className="font-['Inter'] text-[12px] font-medium text-[#747878] mt-1">{course.platform}</p>
             </div>
             
-            <div className="pt-4 border-t border-[#c4c7c7]/30">
-              <span className="font-['Inter'] text-[10px] tracking-[0.05em] uppercase text-[#747878] block mb-1">Why this course:</span>
-              <p className="font-['Inter'] text-[13px] text-[#444748] italic">"{course.reason}"</p>
+            <div className="pt-4 border-t border-[#c4c7c7]/30 flex justify-between items-end">
+              <div className="flex-1">
+                <span className="font-['Inter'] text-[10px] tracking-[0.05em] uppercase text-[#747878] block mb-1">Why this course:</span>
+                <p className="font-['Inter'] text-[13px] text-[#444748] italic">"{course.reason}"</p>
+              </div>
+              <span className="material-symbols-outlined text-[16px] text-black opacity-0 group-hover:opacity-100 transition-opacity ml-4 shrink-0">
+                arrow_outward
+              </span>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
