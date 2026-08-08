@@ -9,6 +9,15 @@ export default function MentorDashboardPage() {
   const [profile, setProfile] = useState(null);
   const [sessions, setSessions] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [replyingTo, setReplyingTo] = useState(null);
+  const [replyContent, setReplyContent] = useState('');
+
+  const handleReplySubmit = (id) => {
+    // In a real app, this would be an API call like: api.post(`/qa/${id}/reply`, { content: replyContent })
+    alert('Reply sent successfully!');
+    setReplyingTo(null);
+    setReplyContent('');
+  };
 
   useEffect(() => {
     const fetchMentorData = async () => {
@@ -86,9 +95,30 @@ export default function MentorDashboardPage() {
                     </div>
                     <p className="font-['Inter'] text-[14px] text-[#5e5e5e] line-clamp-2">{q.content}</p>
                   </div>
-                  <button className="shrink-0 px-6 py-3 border border-black text-black hover:bg-black hover:text-white transition-colors duration-300 font-['Inter'] text-[11px] tracking-[0.12em] font-semibold uppercase mt-4 md:mt-0">
-                    Reply
-                  </button>
+                  {replyingTo === q.id ? (
+                    <div className="flex flex-col gap-2 w-full mt-4 md:mt-0 md:w-auto flex-1 md:ml-8">
+                      <textarea 
+                        autoFocus
+                        className="w-full border border-[#c4c7c7] p-3 text-[12px] font-['Inter'] focus:outline-none focus:border-black resize-y" 
+                        rows="3" 
+                        placeholder="Type your response..."
+                        value={replyContent}
+                        onChange={(e) => setReplyContent(e.target.value)}
+                      ></textarea>
+                      <div className="flex justify-end gap-2">
+                        <button onClick={() => setReplyingTo(null)} className="px-4 py-2 text-[#747878] hover:text-black font-['Inter'] text-[10px] tracking-[0.05em] uppercase font-semibold">
+                          Cancel
+                        </button>
+                        <button onClick={() => handleReplySubmit(q.id)} disabled={!replyContent.trim()} className="px-4 py-2 bg-black text-white hover:bg-[#333] font-['Inter'] text-[10px] tracking-[0.05em] uppercase font-semibold disabled:opacity-50">
+                          Send
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <button onClick={() => setReplyingTo(q.id)} className="shrink-0 px-6 py-3 border border-black text-black hover:bg-black hover:text-white transition-colors duration-300 font-['Inter'] text-[11px] tracking-[0.12em] font-semibold uppercase mt-4 md:mt-0">
+                      Reply
+                    </button>
+                  )}
                 </div>
               ))}
             </div>
