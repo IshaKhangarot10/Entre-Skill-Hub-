@@ -43,7 +43,7 @@ export default function AdminLoginPage() {
         {/* Brand Anchor */}
         <div className="text-center mb-[48px]">
           <h1 className="font-['Inter'] text-[11px] tracking-[0.2em] font-semibold uppercase text-[#444748]">
-            SKILLSPARK
+            EntreSkill
           </h1>
         </div>
 

@@ -14,6 +14,7 @@ exports.getStats = async (req, res, next) => {
     const totalMentors = await Mentor.countDocuments({ verificationStatus: 'approved' });
     const pendingMentors = await Mentor.countDocuments({ verificationStatus: 'pending' });
     const totalIdeas = await BusinessIdea.countDocuments();
+    const totalRoadmaps = await Roadmap.countDocuments();
     const totalSessions = await MentorSession.countDocuments();
     const pendingResources = await LearningResource.countDocuments({ status: 'pending' });
     const openFeedback = await Feedback.countDocuments({ status: 'open' });
@@ -38,6 +39,7 @@ exports.getStats = async (req, res, next) => {
         totalMentors,
         pendingMentors,
         totalIdeas,
+        totalRoadmaps,
         totalSessions,
         pendingResources,
         openFeedback,
