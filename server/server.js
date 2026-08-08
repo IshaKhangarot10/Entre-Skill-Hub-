@@ -39,6 +39,7 @@ app.use('/api/sessions', require('./routes/sessions'));
 app.use('/api/feedback', require('./routes/feedback'));
 app.use('/api/progress', require('./routes/progress'));
 app.use('/api/admin', require('./routes/admin'));
+app.use('/api/ai', require('./routes/ai'));
 
 // Health check
 app.get('/api/health', (req, res) => {

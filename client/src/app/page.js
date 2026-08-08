@@ -53,12 +53,11 @@ export default function HomePage() {
 
         </div>
 
-        {/* Hero Imagery */}
         <div className="max-w-6xl mx-auto w-full mt-24 overflow-hidden relative" style={{ height: 'min(600px, 60vh)' }}>
           <img 
-            src="/images/luxury_office_light.png" 
-            alt="Minimalist modern workspace" 
-            className="w-full h-full object-cover object-center grayscale-[0.2] contrast-[1.05]"
+            src="/images/diary_desk_hero.png" 
+            alt="Minimalist modern workspace with open diary" 
+            className="w-full h-full object-cover object-center grayscale-[0.1] contrast-[1.05]"
           />
         </div>
 

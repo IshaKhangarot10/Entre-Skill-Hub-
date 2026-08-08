@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import api from '@/lib/api';
+import CourseRecommendations from '@/components/CourseRecommendations';
 
 export default function ProgressDashboardPage() {
   const { user } = useAuth();
@@ -66,6 +67,9 @@ export default function ProgressDashboardPage() {
             </div>
           </div>
         </section>
+
+        {/* AI Recommendations */}
+        <CourseRecommendations />
 
         {/* Active Pursuits */}
         <section className="flex flex-col gap-6">
