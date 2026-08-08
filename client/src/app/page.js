@@ -53,6 +53,15 @@ export default function HomePage() {
 
         </div>
 
+        {/* Hero Imagery */}
+        <div className="max-w-6xl mx-auto w-full mt-24 overflow-hidden relative" style={{ height: 'min(600px, 60vh)' }}>
+          <img 
+            src="/images/luxury_office_light.png" 
+            alt="Minimalist modern workspace" 
+            className="w-full h-full object-cover object-center grayscale-[0.2] contrast-[1.05]"
+          />
+        </div>
+
         {/* Feature grid */}
         <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-16 mt-[120px] pt-[80px] border-t border-[#e5e5e5]">
            <div className="flex flex-col items-center text-center gap-4">
