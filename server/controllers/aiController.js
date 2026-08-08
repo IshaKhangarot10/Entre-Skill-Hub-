@@ -15,7 +15,7 @@ exports.recommendCourses = async (req, res, next) => {
     const prompt = `Recommend 4 highly actionable, premium courses ${userContext}. Return them in the exact JSON format specified.`;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-2.0-flash',
       contents: prompt,
       config: {
         responseMimeType: 'application/json',
@@ -47,7 +47,7 @@ exports.recommendCourses = async (req, res, next) => {
       }
     });
 
-    const recommendations = JSON.parse(response.text());
+    const recommendations = JSON.parse(response.text);
 
     res.json({ success: true, data: recommendations });
   } catch (error) {
