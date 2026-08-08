@@ -16,7 +16,10 @@ export default function AdminAnalyticsPage() {
   const [actionLoading, setActionLoading] = useState(null);
 
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      router.push('/admin/login');
+      return;
+    }
     if (user.role !== 'admin') {
       router.push('/dashboard');
       return;
