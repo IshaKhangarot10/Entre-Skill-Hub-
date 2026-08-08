@@ -55,7 +55,7 @@ export default function HomePage() {
 
         <div className="max-w-6xl mx-auto w-full mt-24 overflow-hidden relative" style={{ height: 'min(600px, 60vh)' }}>
           <img 
-            src="/images/diary_desk_hero.png" 
+            src="/images/diary_desk_hero_v2.png" 
             alt="Minimalist modern workspace with open diary" 
             className="w-full h-full object-cover object-center grayscale-[0.1] contrast-[1.05]"
           />
